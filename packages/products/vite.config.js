@@ -4,7 +4,6 @@ import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: 'http://localhost:5001',
     server: {
         port: 5001,
         origin: 'http://localhost:5001',

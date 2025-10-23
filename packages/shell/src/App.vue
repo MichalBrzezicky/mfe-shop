@@ -7,8 +7,10 @@
 </template>
 
 <script>
-import ProductsList from 'products/ProductsList';
-import CartView from 'cart/CartView';
+import { defineAsyncComponent } from 'vue';
+
+const ProductsList = defineAsyncComponent(() => import('products/ProductsList'));
+const CartView = defineAsyncComponent(() => import('cart/CartView'));
 
 export default {
     name: 'App',
