@@ -1,0 +1,22 @@
+{
+  "name": "mfe-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "shell": "pnpm --filter shell dev",
+    "products": "pnpm --filter products dev",
+    "cart": "pnpm --filter cart dev",
+    "all": "concurrently \"pnpm --filter products dev\" \"pnpm --filter cart dev\" \"pnpm --filter shell dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.19.0",
+  "dependencies": {
+    "firebase": "^12.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
