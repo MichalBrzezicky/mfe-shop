@@ -23,7 +23,7 @@ export default defineConfig({
                     entry: 'http://localhost:5002/remoteEntry.js',
                 },
             },
-            shared: ["vue"]
+            shared: ["vue", "vuetify"]
         })
     ],
     build: {

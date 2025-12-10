@@ -14,9 +14,11 @@ export default defineConfig({
             name: 'products',
             filename: 'remoteEntry.js',
             exposes: {
-                './ProductsList': './src/components/ProductsList.vue',
+                './ProductsList': './src/components/ProductsList.vue', // TODO remove later
+                './ProductsPage': './src/pages/ProductsPage.vue',
+                './ProductDetailPage': './src/pages/ProductDetailPage.vue',
             },
-            shared: ['vue'],
+            shared: ['vue', 'vuetify'],
         }),
     ],
     build: {

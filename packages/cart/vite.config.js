@@ -16,7 +16,7 @@ export default defineConfig({
             exposes: {
                 './CartView': './src/components/CartView.vue',
             },
-            shared: ['vue'],
+            shared: ['vue', 'vuetify'],
         }),
     ],
     build: {

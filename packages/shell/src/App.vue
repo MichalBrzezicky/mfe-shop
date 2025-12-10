@@ -5,8 +5,6 @@
 
     <main>
         <router-view />
-        <ProductsList />
-        <CartView />
     </main>
 
     <footer>
@@ -15,16 +13,7 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
-
-const ProductsList = defineAsyncComponent(() => import('products/ProductsList'));
-const CartView = defineAsyncComponent(() => import('cart/CartView'));
-
-export default {
-    name: 'App',
-    components: {
-        ProductsList,
-        CartView,
+    export default {
+        name: 'App',
     }
-};
 </script>
