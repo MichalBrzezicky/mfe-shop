@@ -19,3 +19,6 @@ public/build/
 *.tgz
 *.log
 .DS_Store
+/packages/shell/.__mf__temp/
+/packages/products/.__mf__temp/
+/packages/cart/.__mf__temp/
