@@ -1,9 +1,17 @@
 <template>
-    <div>
-        <h1>Moje MFE e-shop aplikace</h1>
+    <header>
+        <h1>My MFE Shop</h1>
+    </header>
+
+    <main>
+        <router-view />
         <ProductsList />
         <CartView />
-    </div>
+    </main>
+
+    <footer>
+        <p>© 2025 My MFE Shop</p>
+    </footer>
 </template>
 
 <script>
