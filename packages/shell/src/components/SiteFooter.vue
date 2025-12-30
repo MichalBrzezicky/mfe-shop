@@ -4,8 +4,9 @@
       <v-row>
         <v-col cols="12" md="6">
           <div class="brand">
-            <v-icon left>mdi-leaf</v-icon>
-            <strong>Plant Base</strong>
+            <RouterLink aria-label="PlantBase home" class="footer-logo-link" to="/">
+              <img :src="logo" alt="PlantBase" class="site-logo-footer" />
+            </RouterLink>
           </div>
           <p class="muted">Nechte svůj domov růst s pečlivě vybranými pokojovými rostlinami.</p>
         </v-col>
@@ -48,6 +49,7 @@
 
 <script setup>
   import { RouterLink } from 'vue-router'
+  import logo from '../assets/logo.png'
 </script>
 
 <style scoped>
@@ -55,6 +57,16 @@
     display: flex;
     gap: 8px;
     align-items: center;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center
+  }
+
+  .site-logo-footer {
+    height: 36px;
+    width: auto
   }
 
   .muted {

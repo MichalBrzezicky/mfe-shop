@@ -3,9 +3,8 @@
     <v-container>
       <v-row align="center" no-gutters>
         <v-col cols="auto">
-          <RouterLink aria-label="Plant Base home" class="logo" to="/">
-            <v-icon left>mdi-leaf</v-icon>
-            <span class="logo-text">Plant Base</span>
+          <RouterLink aria-label="PlantBase" class="logo" to="/">
+            <img :src="logo" alt="PlantBase" class="site-logo" />
           </RouterLink>
         </v-col>
 
@@ -42,6 +41,7 @@
 
 <script setup>
   import { RouterLink } from 'vue-router'
+  import logo from '../assets/logo.png'
   const { cartCount } = defineProps({
     cartCount: { type: Number, default: 0 },
   })
@@ -69,5 +69,16 @@
     display: inline-flex;
     gap: 6px;
     align-items: center;
+  }
+
+  .site-logo {
+    height: 40px;
+    width: auto;
+  }
+
+  @media (max-width: 768px) {
+    .site-logo {
+      height: 32px;
+    }
   }
 </style>
