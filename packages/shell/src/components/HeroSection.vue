@@ -7,19 +7,7 @@
       <v-row align="center" class="g-6" justify="space-between" wrap>
         <v-col class="text-center" cols="12">
           <v-row>
-            <v-col class="ma-0 pa-0 d-flex justify-center" cols="2">
-              <v-img
-                :src="hangedPlant"
-                cover
-                height="auto"
-                max-width="300"
-                role="img"
-                rounded="lg"
-                style="position: absolute; z-index: 10"
-                width="100%"
-              />
-            </v-col>
-            <v-col class="text-left mt-10" cols="6">
+            <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2">
               <h1 class="text-h4 font-weight-bold mb-3" style="color:#163528; line-height:1.05">
                 Dřeviny a rostliny <br>vhodné pro pěstování v obývacím pokoji
               </h1>
@@ -33,7 +21,19 @@
                 Přejít k nákupu
               </v-btn>
             </v-col>
-            <v-col class="ma-0 pa-0 d-flex justify-center" cols="4">
+            <v-col class="ma-0 pa-0 d-flex justify-center" cols="3" lg="2" md="3" order-md="1">
+              <v-img
+                :max-width="$vuetify.display.mdAndUp ? 290 : 240"
+                :src="hangedPlant"
+                cover
+                height="auto"
+                role="img"
+                rounded="lg"
+                style="position: absolute; z-index: 10"
+                width="100%"
+              />
+            </v-col>
+            <v-col v-if="$vuetify.display.mdAndUp" class="ma-0 pa-0 d-flex justify-center" cols="4" order-md="3">
               <v-img
                 :src="plantSet"
                 cover
@@ -49,23 +49,8 @@
           </v-row>
         </v-col>
 
-        <v-col aria-hidden="true" class="d-flex justify-center" cols="12" md="6" order-md="2">
-          <v-img
-            :src="plantsAtelier"
-            alt="Plants and shop"
-            aria-label="Plants and shop"
-            cover
-            height="auto"
-            max-height="360"
-            max-width="520"
-            role="img"
-            rounded="lg"
-            width="100%"
-          />
-        </v-col>
-
-        <v-col cols="12" md="6" order-md="1">
-          <v-card class="pa-5" elevation="0" max-width="520" rounded="lg">
+        <v-col class="d-flex justify-center" cols="12" md="6">
+          <v-card class="pa-5" elevation="0" rounded="lg">
             <v-card-text>
               <p class="mb-3" style="color:#2e4039">
                 Výsadba stromů představuje odborný proces přesazování stromových sazenic, nejčastěji využívaný v
@@ -91,6 +76,21 @@
               </v-row>
             </v-card-text>
           </v-card>
+        </v-col>
+
+        <v-col aria-hidden="true" class="d-flex justify-center" cols="12" md="6">
+          <v-img
+            :max-width="$vuetify.display.mdAndUp ? 520 : undefined"
+            :src="plantsAtelier"
+            alt="Plants and shop"
+            aria-label="Plants and shop"
+            cover
+            height="auto"
+            max-height="360"
+            role="img"
+            rounded="lg"
+            width="100%"
+          />
         </v-col>
       </v-row>
     </v-container>
