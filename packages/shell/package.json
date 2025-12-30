@@ -8,6 +8,7 @@
     "preview": "concurrently \"vite build --watch\" \"vite preview --port 5173 --strictPort\""
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
     "vuetify": "^3.11.3"

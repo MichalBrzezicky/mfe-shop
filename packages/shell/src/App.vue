@@ -1,19 +1,19 @@
 <template>
-    <header>
-        <h1>My MFE Shop</h1>
-    </header>
-
-    <main>
-        <router-view />
-    </main>
-
-    <footer>
-        <p>© 2025 My MFE Shop</p>
-    </footer>
+  <DefaultLayout>
+    <RouterView />
+  </DefaultLayout>
 </template>
 
 <script>
-    export default {
-        name: 'App',
-    }
+  import DefaultLayout from './layouts/DefaultLayout.vue'
+  import { RouterView } from 'vue-router'
+
+  export default {
+    name: 'App',
+    components: { DefaultLayout, RouterView },
+  }
 </script>
+
+<style>
+  /* global app-level styles could stay in ./style.css */
+</style>

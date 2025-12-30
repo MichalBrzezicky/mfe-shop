@@ -62,6 +62,9 @@ importers:
 
   packages/shell:
     dependencies:
+      '@mdi/font':
+        specifier: ^7.4.47
+        version: 7.4.47
       vue:
         specifier: ^3.5.22
         version: 3.5.22(typescript@5.9.3)
@@ -480,6 +483,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@mdi/font@7.4.47':
+    resolution: {integrity: sha512-43MtGpd585SNzHZPcYowu/84Vz2a2g31TvPMTm9uTiCSWzaheQySUcSyUH/46fPnuPQWof2yd0pGBtzee/IQWw==}
 
   '@module-federation/error-codes@0.17.1':
     resolution: {integrity: sha512-n6Elm4qKSjwAPxLUGtwnl7qt4y1dxB8OpSgVvXBIzqI9p27a3ZXshLPLnumlpPg1Qudaj8sLnSnFtt9yGpt5yQ==}
@@ -1394,6 +1400,8 @@ snapshots:
       yargs: 17.7.2
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@mdi/font@7.4.47': {}
 
   '@module-federation/error-codes@0.17.1': {}
 
