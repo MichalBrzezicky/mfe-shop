@@ -8,9 +8,9 @@
       <v-row align="center" class="g-6" justify="space-between" wrap>
         <v-col class="text-center" cols="12">
           <v-row>
-            <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2" style="min-height: 140px" xl="7">
+            <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2" style="min-height: 140px">
               <h1 class="text-h4 font-weight-bold mb-3" style="color:#163528; line-height:1.05">
-                Dřeviny a rostliny <br v-if="$vuetify.display.lgAndDown">vhodné pro pěstování v obývacím pokoji
+                Dřeviny a rostliny <br>vhodné pro pěstování v obývacím pokoji
               </h1>
               <v-btn
                 class="text-none mb-4"
@@ -34,7 +34,7 @@
                 width="100%"
               />
             </v-col>
-            <v-col v-if="$vuetify.display.mdAndUp" class="ma-0 pa-0 d-flex justify-center" cols="4" order-md="3" xl="3">
+            <v-col v-if="$vuetify.display.mdAndUp" class="ma-0 pa-0 d-flex justify-center" cols="4" order-md="3">
               <v-img
                 :src="plantSet"
                 cover
@@ -54,9 +54,10 @@
           <v-card class="pa-5" elevation="0" rounded="lg">
             <v-card-text>
               <p class="mb-3" style="color:#2e4039">
-                Výsadba stromů představuje odborný proces přesazování stromových sazenic, nejčastěji využívaný v
-                lesnictví a při obnově krajiny. Na rozdíl od arboristiky se zaměřuje na mladé rostliny, nikoli na
-                přesazování vzrostlých stromů, a klade důraz na správný výběr...
+                Výsadba stromů představuje odborný proces přesazování stromových sazenic, který je nejčastěji využíván v
+                lesnictví, zahradnictví a při obnově krajiny. Tento proces se soustředí především na práci s mladými
+                rostlinami, které se teprve adaptují na nové prostředí, a klade důraz na správný výběr dřevin s ohledem
+                na klimatické podmínky, typ půdy a zamýšlené využití prostoru. Na rozdíl od...
               </p>
 
               <a href="#" style="color:#2b8a56; font-weight:600; text-decoration:none">
