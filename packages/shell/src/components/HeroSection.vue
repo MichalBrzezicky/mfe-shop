@@ -4,13 +4,13 @@
     rounded="lg"
     style="background: linear-gradient(180deg, #e5ece5 0%, #7f976f 100%)"
   >
-    <v-container class="pa-0" style="max-width:1100px">
+    <v-container class="pa-0 px-xl-10">
       <v-row align="center" class="g-6" justify="space-between" wrap>
         <v-col class="text-center" cols="12">
           <v-row>
-            <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2">
+            <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2" style="min-height: 140px" xl="7">
               <h1 class="text-h4 font-weight-bold mb-3" style="color:#163528; line-height:1.05">
-                Dřeviny a rostliny <br>vhodné pro pěstování v obývacím pokoji
+                Dřeviny a rostliny <br v-if="$vuetify.display.lgAndDown">vhodné pro pěstování v obývacím pokoji
               </h1>
               <v-btn
                 class="text-none mb-4"
@@ -34,7 +34,7 @@
                 width="100%"
               />
             </v-col>
-            <v-col v-if="$vuetify.display.mdAndUp" class="ma-0 pa-0 d-flex justify-center" cols="4" order-md="3">
+            <v-col v-if="$vuetify.display.mdAndUp" class="ma-0 pa-0 d-flex justify-center" cols="4" order-md="3" xl="3">
               <v-img
                 :src="plantSet"
                 cover
@@ -50,7 +50,7 @@
           </v-row>
         </v-col>
 
-        <v-col class="d-flex justify-center" cols="12" md="6">
+        <v-col class="d-flex justify-center" cols="12" lg="7" md="6">
           <v-card class="pa-5" elevation="0" rounded="lg">
             <v-card-text>
               <p class="mb-3" style="color:#2e4039">
@@ -79,7 +79,7 @@
           </v-card>
         </v-col>
 
-        <v-col aria-hidden="true" class="d-flex justify-center" cols="12" md="6">
+        <v-col aria-hidden="true" class="d-flex justify-center" cols="12" lg="5" md="6">
           <v-img
             :max-width="$vuetify.display.mdAndUp ? 520 : undefined"
             :src="plantsAtelier"
