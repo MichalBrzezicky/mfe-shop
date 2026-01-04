@@ -1,0 +1,85 @@
+<template>
+  <v-card
+    :color="'#f3f3f3'"
+    class="product-card"
+    elevation="0"
+    rounded="lg"
+    variant="flat"
+    @click="emit('view-product', product.id)"
+  >
+    <v-img
+      :src="product.image"
+      alt="product image"
+      class="product-image"
+      height="240"
+    />
+
+    <v-card-title class="text-h6">
+      {{ product.title }}
+    </v-card-title>
+
+    <v-card-text class="py-0">
+      <div class="text-body-2 text-medium-emphasis text-truncate">
+        {{ product.description }}
+      </div>
+    </v-card-text>
+
+    <v-card-actions class="justify-space-between align-center px-3">
+      <span>{{ formattedPrice }}</span>
+
+      <v-btn
+        v-if="showAddToCart"
+        color="primary"
+        density="compact"
+        icon
+        @click.stop="emit('add-to-cart', product.id)"
+      >
+        <v-icon icon="mdi-cart-plus" />
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+</template>
+
+<script setup>
+  import { computed } from 'vue'
+
+  const { product, showAddToCart } = defineProps({
+    product: {
+      type: Object,
+      required: true,
+    },
+    showAddToCart: {
+      type: Boolean,
+      default: true,
+    },
+  })
+
+  const emit = defineEmits(['view-product', 'add-to-cart'])
+
+  const formattedPrice = computed(() => {
+    const price = product.price ?? 0
+
+    return new Intl.NumberFormat('cs-CZ', {
+      style: 'currency',
+      currency: 'CZK',
+      maximumFractionDigits: 2,
+    }).format(price)
+  })
+</script>
+
+<style scoped>
+  .product-image {
+    background-color: #f7f7f7;
+  }
+
+  .product-card {
+    border-radius: 12px;
+  }
+
+  .text-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

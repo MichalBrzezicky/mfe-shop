@@ -1,7 +1,8 @@
 <template>
   <v-sheet
     class="pt-0 px-4"
-    style="background: linear-gradient(180deg, #e5ece5 0%, #e4eae0 100%)"
+    rounded="lg"
+    style="background: linear-gradient(180deg, #e5ece5 0%, #7f976f 100%)"
   >
     <v-container class="pa-0" style="max-width:1100px">
       <v-row align="center" class="g-6" justify="space-between" wrap>

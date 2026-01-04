@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar dense elevation="0" flat>
+  <v-app-bar dense elevation="1" flat>
     <v-container>
       <v-row align="center" no-gutters>
         <v-col cols="auto">
@@ -42,8 +42,12 @@
 <script setup>
   import { RouterLink } from 'vue-router'
   import logo from '../assets/logo.png'
+
   const { cartCount } = defineProps({
-    cartCount: { type: Number, default: 0 },
+    cartCount: {
+      type: Number,
+      default: 0,
+    },
   })
 </script>
 

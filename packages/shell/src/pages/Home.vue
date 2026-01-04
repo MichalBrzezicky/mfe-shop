@@ -1,20 +1,16 @@
 <template>
   <div>
-    <HeroSection />
+    <HeroSection class="mb-10" />
+    <ProductsList />
   </div>
 </template>
-<script>
+
+
+<script setup>
   import { defineAsyncComponent } from 'vue'
   import HeroSection from '../components/HeroSection.vue'
 
-  const ProductsList = defineAsyncComponent(() => import('products/ProductsList'))
-  const CartView = defineAsyncComponent(() => import('cart/CartView'))
-  export default {
-    name: 'Home',
-    components: {
-      HeroSection,
-      ProductsList,
-      CartView,
-    },
-  }
+  const ProductsList = defineAsyncComponent(
+    () => import('products/ProductsList'),
+  )
 </script>
