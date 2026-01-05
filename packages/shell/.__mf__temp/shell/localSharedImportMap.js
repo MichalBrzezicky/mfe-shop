@@ -8,6 +8,11 @@
           return pkg
         }
       ,
+        "vue-router": async () => {
+          let pkg = await import("__mf__virtual/shell__prebuild__vue_mf_2_router__prebuild__.js")
+          return pkg
+        }
+      ,
         "vuetify": async () => {
           let pkg = await import("__mf__virtual/shell__prebuild__vuetify__prebuild__.js")
           return pkg
@@ -37,8 +42,34 @@
               }
             },
             shareConfig: {
-              singleton: false,
+              singleton: true,
               requiredVersion: "^3.5.22"
+            }
+          }
+        ,
+          "vue-router": {
+            name: "vue-router",
+            version: "4.6.3",
+            scope: ["default"],
+            loaded: false,
+            from: "shell",
+            async get () {
+              usedShared["vue-router"].loaded = true
+              const {"vue-router": pkgDynamicImport} = importMap 
+              const res = await pkgDynamicImport()
+              const exportModule = {...res}
+              // All npm packages pre-built by vite will be converted to esm
+              Object.defineProperty(exportModule, "__esModule", {
+                value: true,
+                enumerable: false
+              })
+              return function () {
+                return exportModule
+              }
+            },
+            shareConfig: {
+              singleton: true,
+              requiredVersion: "^4.6.3"
             }
           }
         ,
@@ -63,7 +94,7 @@
               }
             },
             shareConfig: {
-              singleton: false,
+              singleton: true,
               requiredVersion: "^3.11.3"
             }
           }

@@ -19,10 +19,16 @@
   "license": "ISC",
   "packageManager": "pnpm@10.19.0",
   "dependencies": {
-    "firebase": "^12.4.0"
+    "@mdi/font": "^7.4.47",
+    "firebase": "^12.4.0",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "vuetify": "^3.11.3"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "husky": "^9.1.7"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": [
