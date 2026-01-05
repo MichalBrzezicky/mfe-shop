@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar dense elevation="1" flat>
+  <v-app-bar dense elevation="0" flat>
     <v-container>
       <v-row align="center" no-gutters>
         <v-col cols="auto">
