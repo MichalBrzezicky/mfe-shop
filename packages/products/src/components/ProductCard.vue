@@ -1,6 +1,6 @@
 <template>
   <v-card
-    :color="'#f3f3f3'"
+    :color="'#f1f1f1'"
     class="product-card"
     elevation="0"
     rounded="lg"
@@ -30,11 +30,10 @@
       <v-btn
         v-if="showAddToCart"
         color="primary"
-        density="compact"
-        icon
         @click.stop="emit('add-to-cart', product.id)"
       >
-        <v-icon icon="mdi-cart-plus" />
+        <v-icon class="mr-1" icon="mdi-cart-plus" left />
+        Přidat do košíku
       </v-btn>
     </v-card-actions>
   </v-card>
