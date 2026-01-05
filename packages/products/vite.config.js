@@ -19,6 +19,12 @@ export default defineConfig({
         './ProductsPage': './src/pages/ProductsPage.vue',
         './ProductDetailPage': './src/pages/ProductDetailPage.vue',
       },
+      remotes: {
+        shell: {
+          type: 'module',
+          entry: 'http://localhost:5173/remoteEntry.js',
+        },
+      },
       shared: {
         vue: { singleton: true },
         pinia: { singleton: true },

@@ -8,11 +8,12 @@
     "preview": "concurrently \"vite build --watch\" \"vite preview --port 5173 --strictPort\""
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@shared/core": "workspace:*",
+    "pinia": "^3.0.4",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
-    "pinia": "^3.0.4",
-    "vuetify": "^3.11.3",
-    "@mdi/font": "^7.4.47"
+    "vuetify": "^3.11.3"
   },
   "devDependencies": {
     "@module-federation/vite": "^1.0.0",

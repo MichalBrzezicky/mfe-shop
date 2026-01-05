@@ -29,7 +29,7 @@
           </v-btn>
 
           <v-badge :content="cartCount" color="primary" overlap>
-            <v-btn aria-label="Cart" icon @click="$emit('open-cart')">
+            <v-btn aria-label="Cart" icon to="/cart" @click="$emit('open-cart')">
               <v-icon>mdi-cart</v-icon>
             </v-btn>
           </v-badge>

@@ -4,7 +4,7 @@
 
     <v-row dense>
       <v-col
-        v-for="product in products"
+        v-for="product in productStore.products"
         :key="product.id"
         cols="12"
         lg="3"
@@ -14,7 +14,7 @@
       >
         <ProductCard
           :product="product"
-          @add-to-cart="onAddToCart"
+          @add-to-cart="onAddToCart(product)"
           @view-product="onViewProduct"
         />
       </v-col>
@@ -23,61 +23,26 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { eventBus } from '@shared/core/eventBus'
+  import { CART_EVENTS } from '@shared/core/events/cart.events'
+  import { onMounted } from 'vue'
   import ProductCard from './ProductCard.vue'
+  import { useProductStore } from '../stores/productStore.js'
 
-  const products = ref([
-    {
-      id: 1,
-      title: 'Kapradina hnízdová',
-      price: 849,
-      image: '/src/assets/demo_plant.png',
-      description: 'Čistí vzduch. Elegantní rostlina v keramickém květináči.',
-    },
-    {
-      id: 2,
-      title: 'Voskovka obovatá (Hoya)',
-      price: 649,
-      image: '/src/assets/demo_plant.png',
-      description:
-        'Popínavá rostlina s masitými lesklými listy, vhodná na poličky i do závěsných květináčů.',
-    },
-    {
-      id: 3,
-      title: 'Monstera deliciosa',
-      price: 2249,
-      image: '/src/assets/demo_plant.png',
-      description: 'Ikonická rostlina s děrovanými listy, vhodná do světlých interiérů.',
-    },
-    {
-      id: 4,
-      title: 'ZZ rostlina (Zamioculcas)',
-      price: 1249,
-      image: '/src/assets/demo_plant.png',
-      description:
-        'Odolná rostlina do stínu, téměř nezničitelná — ideální do rušných domácností.',
-    },
-    {
-      id: 5,
-      title: 'Strelície královská',
-      price: 2499,
-      image: '/src/assets/demo_plant.png',
-      description: 'Tropické listy, které dodají místnosti výrazný charakter.',
-    },
-    {
-      id: 6,
-      title: 'Calathea – Krásná hvězda',
-      price: 799,
-      image: '/src/assets/demo_plant.png',
-      description: 'Dekorační listy s výraznými vzory a jemným pohybem.',
-    },
-  ])
+  const emit = defineEmits(['add-to-cart', 'view-product'])
 
-  function onAddToCart(productId) {
-    console.log('Add to cart', productId)
+  const productStore = useProductStore()
+
+
+  function onAddToCart(product) {
+    eventBus.emit(CART_EVENTS.ADD, product)
   }
 
   function onViewProduct(productId) {
-    console.log('View product', productId)
+    emit('view-product', productId)
   }
+
+  onMounted(async () => {
+    await productStore.fetchProducts()
+  })
 </script>
