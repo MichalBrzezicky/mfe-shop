@@ -42,6 +42,18 @@ between strong isolation and a good user experience, and is common in real‑wor
 Note: the project intentionally does not enforce full runtime isolation for each micro‑frontend — the goal is to present
 a realistic, usable architecture for SPA apps (this work is part of a diploma thesis).
 
+## Known Limitations
+
+- Microfrontends share a single application runtime
+- Independent deployment of microfrontends is not supported
+- Cross-microfrontend communication is asynchronous only
+
+These limitations are a deliberate trade-off in favor of:
+
+- simpler development
+- better user experience
+- lower maintenance overhead
+
 ## Repository structure
 
 ```
