@@ -1,8 +1,18 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import { createPinia } from 'pinia'
+import { useCartEventHandlers } from './integrations/cartEventHandlers.js'
+const { pinia } = await import('shell/pinia.js')
 
 const app = createApp(App)
-app.use(createPinia())
+app.use(pinia)
+
+
 app.mount('#app')
+
+const cartEventHandlers = useCartEventHandlers()
+cartEventHandlers.register()
+
+app.onUnmount(() => {
+  cartEventHandlers.unregister()
+})

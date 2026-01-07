@@ -18,6 +18,7 @@ export default defineConfig({
         './ProductsList': './src/components/ProductsList.vue', // TODO remove later
         './ProductsPage': './src/pages/ProductsPage.vue',
         './ProductDetailPage': './src/pages/ProductDetailPage.vue',
+        './productEventHandlers': './src/integrations/productEventHandlers.js',
       },
       remotes: {
         shell: {

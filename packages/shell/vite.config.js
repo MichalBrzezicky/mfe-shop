@@ -12,6 +12,7 @@ export default defineConfig({
     vue(),
     federation({
       name: 'shell',
+      filename: 'remoteEntry.js',
       remotes: {
         products: {
           name: 'products',
@@ -23,6 +24,9 @@ export default defineConfig({
           type: 'module',
           entry: 'http://localhost:5002/remoteEntry.js',
         },
+      },
+      exposes: {
+        './pinia': './src/plugins/pinia.js',
       },
       shared: {
         vue: { singleton: true },

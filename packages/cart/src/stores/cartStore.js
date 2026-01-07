@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { eventBus } from '@shared/core/eventBus'
-import { CART_EVENTS } from '@shared/core/events/cart.events'
 
 export const useCartStore = defineStore('cart', () => {
   const items = ref([])
@@ -17,6 +15,7 @@ export const useCartStore = defineStore('cart', () => {
   function addProduct(product) {
     const existing = items.value.find(p => p.id === product.id)
 
+    console.log('Add product called with:', product)
     if (existing) {
       existing.quantity++
     } else {
@@ -54,9 +53,6 @@ export const useCartStore = defineStore('cart', () => {
 
   // 👇 INIT LOGIC – SPUSTÍ SE JEDNOU
   console.log('cart store initialized')
-
-  eventBus.on(CART_EVENTS.ADD, handleAddToCart)
-  eventBus.on(CART_EVENTS.REMOVE, handleRemoveFromCart)
 
   return {
     items,

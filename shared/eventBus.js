@@ -7,8 +7,9 @@ export const eventBus = {
 
   on(event, handler) {
     window.addEventListener(event, handler)
-    return () => {
-      window.removeEventListener(event, handler)
-    }
+  },
+
+  off(event, handler) {
+    window.removeEventListener(event, handler)
   },
 }

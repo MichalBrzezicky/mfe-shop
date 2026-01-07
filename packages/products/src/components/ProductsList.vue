@@ -24,7 +24,7 @@
 
 <script setup>
   import { eventBus } from '@shared/core/eventBus'
-  import { CART_EVENTS } from '@shared/core/events/cart.events'
+  import { CART_EVENTS } from '@shared/core/events/CartEventsEnum.js'
   import { onMounted } from 'vue'
   import ProductCard from './ProductCard.vue'
   import { useProductStore } from '../stores/productStore.js'
@@ -35,7 +35,7 @@
 
 
   function onAddToCart(product) {
-    eventBus.emit(CART_EVENTS.ADD, product)
+    eventBus.emit(CART_EVENTS.ADD, { product })
   }
 
   function onViewProduct(productId) {

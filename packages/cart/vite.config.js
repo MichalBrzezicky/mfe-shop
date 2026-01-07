@@ -19,6 +19,13 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './CartView': './src/components/CartView.vue',
+        './cartEventHandlers': './src/integrations/cartEventHandlers.js',
+      },
+      remotes: {
+        shell: {
+          type: 'module',
+          entry: 'http://localhost:5173/remoteEntry.js',
+        },
       },
       shared: {
         vue: { singleton: true },
