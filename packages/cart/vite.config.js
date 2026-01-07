@@ -20,12 +20,6 @@ export default defineConfig({
       exposes: {
         './CartView': './src/components/CartView.vue',
       },
-      remotes: {
-        shell: {
-          type: 'module',
-          entry: 'http://localhost:5173/remoteEntry.js',
-        },
-      },
       shared: {
         vue: { singleton: true },
         pinia: { singleton: true },

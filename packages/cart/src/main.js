@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-const { pinia } = await import('shell/pinia.js')
+import { createPinia } from 'pinia'
 
 const app = createApp(App)
-app.use(pinia)
+app.use(createPinia())
 app.mount('#app')
