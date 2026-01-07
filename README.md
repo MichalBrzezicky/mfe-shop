@@ -1,102 +1,141 @@
-# MFE Shop — instrukce
+# MFE Shop
 
-Obsah:
+A sample e‑commerce application demonstrating a micro‑frontend architecture
 
-- Co je v repo
-- Požadavky
-- Instalace
-- Spuštění během vývoje (dev)
-- Co dělá `vite preview` a jak ho spustit
-- Rychlé příkazy
+This repository contains a demonstration implementation of an e‑shop built using a micro‑frontend architecture with a
+shared application runtime. The project aims to validate design decisions, integration patterns and limits of
+micro‑frontends in a modern frontend application.
 
----
+## Table of contents
 
-Co je v tomto repozitáři
+- Project overview
+- Architecture
+- Repository structure
+- Technologies
+- Requirements
+- Installation
+- Development (hot‑reload)
+- Production build and preview
+- Quick commands
 
-- Monorepo se 3 balíčky v `packages/`:
-  - `shell` (host)
-  - `products` (remote)
-  - `cart` (remote)
-  - `shared` - sdílené komponenty jako buttons, atd (zatím nebylo potřeba)
+## Project overview
 
-Požadavky
+The application is split into independent frontend modules (micro‑frontends), each representing separate e‑commerce
+domains:
 
-- Node.js (doporučeno LTS)
-- pnpm (repo používá pnpm workspace)
+- Shell — the host application that orchestrates runtime and integration
+- Products — a micro‑frontend responsible for product listing and product details
+- Cart — a micro‑frontend handling the shopping cart state and UI
+- Shared — shared utilities and small modules (event bus, contracts)
 
-Instalace (z kořene projektu)
+The architecture follows a shell‑centric approach with a shared runtime (Vue + Pinia). This is a pragmatic trade‑off
+between strong isolation and a good user experience, and is common in real‑world SPA micro‑frontend setups.
+
+## Architecture
+
+- Micro‑frontends are integrated using Module Federation (via a Vite plugin)
+- Each micro‑frontend is built independently
+- Application state (e.g. cart) is initialized and provided by the shell host
+- Communication between micro‑frontends is event‑driven (an event bus + contract enums)
+- The shell acts as the lifecycle orchestrator and integration point
+
+Note: the project intentionally does not enforce full runtime isolation for each micro‑frontend — the goal is to present
+a realistic, usable architecture for SPA apps (this work is part of a diploma thesis).
+
+## Repository structure
+
+```
+packages/
+├─ shell/ # host application (orchestrator)
+├─ products/ # products micro‑frontend
+├─ cart/ # cart micro‑frontend
+└─ shared/ # shared utilities (eventBus, contracts)
+```
+
+This repository is managed as a PNPM monorepo.
+
+## Technologies
+
+- Vue 3
+- Vite
+- Module Federation (Vite plugin)
+- Pinia
+- Vue Router
+- Vuetify 3
+- Material Design Icons
+- JavaScript
+- PNPM (workspaces)
+
+## Requirements
+
+- Node.js (LTS recommended)
+- PNPM (workspace aware)
+
+## Installation
+
+From the repository root:
 
 ```bash
 pnpm install
 ```
 
-Důležité: pokud se při spouštění skriptu objeví `concurrently: command not found`, je potřeba nainstalovat
-`concurrently`:
+## Development (hot‑reload)
 
-```bash
-pnpm -w add -D concurrently
-# nebo (rychle) globálně
-pnpm add -g concurrently
-```
-
-Pro vývoj (lokální hot-reload)
-
-- Spustí všechny tři projekty paralelně (dev):
+To run all packages with hot‑reload locally (recommended):
 
 ```bash
 pnpm run all
-# nebo spustit jednotlivě v každé složce
+```
+
+Or run packages individually:
+
+```bash
 pnpm --filter shell dev
 pnpm --filter products dev
 pnpm --filter cart dev
 ```
 
-Co dělá `vite preview` a proč je v skriptech
+## Production build and preview
 
-- `vite preview` slouží k otestování "production" buildu lokálně. Bere složku `dist` (výsledek `vite build`) a spouští
-  server, který tento statický build servíruje.
-- V tomto repo jsou preview-skripty nastaveny takto (příklad ze `packages/shell/package.json`):
+The repository provides scripts that use `vite preview` to:
 
-  - `concurrently "vite build --watch" "vite preview --port 5173 --strictPort"`
-  - To znamená: provádí se průběžná (watch) produkční sestavení do `dist` a zároveň se spustí preview server, který
-    servíruje obsah z `dist`.
-  - Používá se proto, abyste viděli chování buildu (hashované assets, chování module-federation v produkční podobě) bez
-    nutnosti deployovat.
+- test the behavior of the production build
+- verify Module Federation behavior in production mode
+- simulate deployment without actually deploying
 
-Jak spustit preview z konzole (příklady)
-
-Ve složce `packages/products`:
-
-```bash
-pnpm --filter products preview
-```
-
-Nebo z kořene (monorepo skript):
+Example (coordinated build + preview for all packages):
 
 ```bash
 pnpm run all_with_preview
 ```
 
----
-
-Výsledné rychlé příkazy (sh):
+Or build/preview a single package:
 
 ```bash
-# nainstalovat závislosti
-pnpm install
-
-# spustit všechno v dev režimu
-pnpm run all
-
-# nebo zkoordinované preview (build + preview)
-pnpm run all_with_preview
-
-# nebo spustit jednotlivě
-pnpm --filter products dev
-pnpm --filter cart dev
-pnpm --filter shell dev
-
-# build + standalone preview pro products
 pnpm --filter products build
 pnpm --filter products preview -- --port 5001 --strictPort
 ```
+
+## Quick commands
+
+```bash
+# install dependencies
+pnpm install
+
+# run all apps in dev mode (hot reload)
+pnpm run all
+
+# build + preview for all apps
+pnpm run all_with_preview
+
+# run individual packages
+pnpm --filter shell dev
+pnpm --filter products dev
+pnpm --filter cart dev
+```
+
+## Note
+
+This project is part of a diploma thesis focused on micro‑frontend architecture. The goal is not to provide a
+production‑ready online store but to validate architectural principles, integration patterns and trade‑offs in a
+realistic SPA environment.
