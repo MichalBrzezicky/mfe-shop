@@ -28,11 +28,7 @@
             <v-icon>mdi-account</v-icon>
           </v-btn>
 
-          <v-badge :content="cartCount" color="primary" overlap>
-            <v-btn aria-label="Cart" icon to="/cart" @click="$emit('open-cart')">
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
-          </v-badge>
+          <CartPreviewBtn />
         </v-col>
       </v-row>
     </v-container>
@@ -40,15 +36,13 @@
 </template>
 
 <script setup>
+  import { defineAsyncComponent } from 'vue'
   import { RouterLink } from 'vue-router'
   import logo from '../assets/logo.png'
 
-  const { cartCount } = defineProps({
-    cartCount: {
-      type: Number,
-      default: 0,
-    },
-  })
+  const CartPreviewBtn = defineAsyncComponent(
+    () => import('cart/CartPreviewBtn'),
+  )
 </script>
 
 <style scoped>
@@ -59,10 +53,6 @@
     font-weight: 600;
     color: #1f2d2a;
     text-decoration: none;
-  }
-
-  .logo-text {
-    font-size: 1.05rem;
   }
 
   .nav-links .v-btn {

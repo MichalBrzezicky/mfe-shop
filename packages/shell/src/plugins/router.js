@@ -6,15 +6,15 @@ const ProductDetailPage = () => import('products/ProductDetailPage')
 const CartPage = () => import('cart/CartView')
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/products', component: ProductsPage },
-    { path: '/products/:id', component: ProductDetailPage },
-    { path: '/cart', component: CartPage },
+  { name: 'home', path: '/', component: Home },
+  { name: 'products', path: '/products', component: ProductsPage },
+  { name: 'product-detail', path: '/products/:id', component: ProductDetailPage },
+  { name: 'cart', path: '/cart', component: CartPage },
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 })
 
 export default router

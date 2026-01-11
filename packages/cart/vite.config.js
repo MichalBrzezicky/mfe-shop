@@ -20,6 +20,7 @@ export default defineConfig({
       exposes: {
         './CartView': './src/components/CartView.vue',
         './cartEventHandlers': './src/integrations/cartEventHandlers.js',
+        './CartPreviewBtn': './src/components/CartPreviewBtn.vue',
       },
       remotes: {
         shell: {

@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import { useStorage } from '@vueuse/core'
 
 export const useCartStore = defineStore('cart', () => {
-  const items = ref([])
+  const items = useStorage('cart-items', [])
 
   const totalCount = computed(() =>
     items.value.reduce((sum, item) => sum + item.quantity, 0),
@@ -15,7 +16,6 @@ export const useCartStore = defineStore('cart', () => {
   function addProduct(product) {
     const existing = items.value.find(p => p.id === product.id)
 
-    console.log('Add product called with:', product)
     if (existing) {
       existing.quantity++
     } else {
@@ -43,16 +43,12 @@ export const useCartStore = defineStore('cart', () => {
   }
 
   function handleAddToCart(event) {
-    console.log(event, 'event in cart store')
     addProduct(event.detail)
   }
 
   function handleRemoveFromCart(event) {
     removeProduct(event.detail.id)
   }
-
-  // 👇 INIT LOGIC – SPUSTÍ SE JEDNOU
-  console.log('cart store initialized')
 
   return {
     items,
