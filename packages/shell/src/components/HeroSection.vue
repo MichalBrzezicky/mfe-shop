@@ -17,6 +17,7 @@
                 color="success"
                 elevation="2"
                 style="border-radius:6px; padding:10px 18px; font-weight:600"
+                to="/products"
                 variant="elevated"
               >
                 Přejít k nákupu

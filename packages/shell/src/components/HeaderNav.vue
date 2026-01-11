@@ -19,11 +19,7 @@
 
         <v-spacer />
 
-        <v-col class="actions" cols="auto">
-          <v-btn aria-label="Search" icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-
+        <v-col class="d-inline-flex align-center" cols="auto">
           <v-btn aria-label="Account" icon>
             <v-icon>mdi-account</v-icon>
           </v-btn>
@@ -57,12 +53,6 @@
 
   .nav-links .v-btn {
     margin: 0 6px;
-  }
-
-  .actions {
-    display: inline-flex;
-    gap: 6px;
-    align-items: center;
   }
 
   .site-logo {
