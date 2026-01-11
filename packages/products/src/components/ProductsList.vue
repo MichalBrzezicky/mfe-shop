@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-h5 mb-4">Doporučené plodiny</h2>
+    <h2 class="text-h5 mb-4 mx-2">Doporučené plodiny</h2>
 
     <v-row dense>
       <v-col
