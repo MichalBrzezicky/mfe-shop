@@ -1,6 +1,6 @@
 <template>
   <v-container class="pa-0 ma-0">
-    <h2 class="text-h5 mb-4 mx-2">Veškerý sortiment</h2>
+    <h2 class="text-h5 mb-4 mx-2">Doporučené plodiny</h2>
 
     <v-row dense>
       <v-col
@@ -43,6 +43,6 @@
   }
 
   onMounted(async () => {
-    await productStore.fetchProducts()
+    await productStore.fetchRecommendedProducts()
   })
 </script>

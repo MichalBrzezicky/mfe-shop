@@ -15,10 +15,11 @@ export default defineConfig({
       name: 'products',
       filename: 'remoteEntry.js',
       exposes: {
-        './ProductsList': './src/components/ProductsList.vue', // TODO remove later
         './ProductsPage': './src/pages/ProductsPage.vue',
         './ProductDetailPage': './src/pages/ProductDetailPage.vue',
+        './RecommendedProductsList': './src/components/RecommendedProductsList.vue',
         './productEventHandlers': './src/integrations/productEventHandlers.js',
+
       },
       remotes: {
         shell: {

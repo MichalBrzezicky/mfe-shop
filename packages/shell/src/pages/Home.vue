@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroSection class="mb-10" />
-    <ProductsList />
+    <RecommendedProductsList />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
   import { defineAsyncComponent } from 'vue'
   import HeroSection from '../components/HeroSection.vue'
 
-  const ProductsList = defineAsyncComponent(
-    () => import('products/ProductsList'),
+  const RecommendedProductsList = defineAsyncComponent(
+    () => import('products/RecommendedProductsList'),
   )
 </script>
