@@ -14,6 +14,17 @@
       height="240"
     />
 
+    <v-row
+      v-if="isOnSale"
+      align="center"
+      class="fill-height ma-0"
+      justify="center"
+      style="position: absolute; top: 10px; left: 10px; display: block"
+    >
+      <v-chip class="text-subtitle-1" color="red-lighten-1" variant="flat">Výprodej</v-chip>
+    </v-row>
+
+
     <v-card-title class="text-h6">
       {{ product.title }}
     </v-card-title>
@@ -25,16 +36,24 @@
     </v-card-text>
 
     <v-card-actions class="justify-space-between align-center px-3">
-      <span>{{ formattedPrice }}</span>
-
       <v-btn
         v-if="showAddToCart"
+        class="pa-0"
         color="primary"
         @click.stop="emit('add-to-cart', product.id)"
       >
-        <v-icon class="mr-1" icon="mdi-cart-plus" left />
+        <v-icon class="ml-1" icon="mdi-cart-plus" left />
         Přidat do košíku
       </v-btn>
+      <v-container class="ma-0 pa-0 text-right">
+        <v-row class="ma-0 pa-0" no-gutters>
+          <v-col :class="isOnSale ? 'text-decoration-line-through text-caption' : ''" class="ma-0 pa-0" cols="12">
+            {{ formattedPrice }}
+          </v-col>
+          <v-col class="ma-0 pa-0" cols="12">{{ formattedSalePrice }}</v-col>
+        </v-row>
+      </v-container>
+
     </v-card-actions>
   </v-card>
 </template>
@@ -54,6 +73,24 @@
   })
 
   const emit = defineEmits(['view-product', 'add-to-cart'])
+
+  const isOnSale = computed(() => {
+    return !!product.sale
+  })
+
+  const formattedSalePrice = computed(() => {
+    if (!isOnSale.value) {
+      return null
+    }
+
+    const salePrice = product.sale ?? 0
+
+    return new Intl.NumberFormat('cs-CZ', {
+      style: 'currency',
+      currency: 'CZK',
+      maximumFractionDigits: 2,
+    }).format(salePrice)
+  })
 
   const formattedPrice = computed(() => {
     const price = product.price ?? 0

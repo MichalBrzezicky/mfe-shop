@@ -2,6 +2,7 @@
   <div>
     <HeroSection class="mb-10" />
     <RecommendedProductsList class="my-2" />
+    <v-divider class="my-8" />
     <ProductsOnSaleList class="my-2" />
   </div>
 </template>
