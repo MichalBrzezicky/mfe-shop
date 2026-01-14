@@ -1,7 +1,8 @@
 <template>
   <div>
     <HeroSection class="mb-10" />
-    <RecommendedProductsList />
+    <RecommendedProductsList class="my-2" />
+    <ProductsOnSaleList class="my-2" />
   </div>
 </template>
 
@@ -12,5 +13,9 @@
 
   const RecommendedProductsList = defineAsyncComponent(
     () => import('products/RecommendedProductsList'),
+  )
+
+  const ProductsOnSaleList = defineAsyncComponent(
+    () => import('products/ProductsOnSaleList'),
   )
 </script>

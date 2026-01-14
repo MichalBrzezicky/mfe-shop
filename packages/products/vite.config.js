@@ -18,6 +18,7 @@ export default defineConfig({
         './ProductsPage': './src/pages/ProductsPage.vue',
         './ProductDetailPage': './src/pages/ProductDetailPage.vue',
         './RecommendedProductsList': './src/components/RecommendedProductsList.vue',
+        './ProductsOnSaleList': './src/components/ProductsOnSaleList.vue',
         './productEventHandlers': './src/integrations/productEventHandlers.js',
 
       },
