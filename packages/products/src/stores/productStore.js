@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { getAllProducts } from '../services/productsService.js'
 
 export const useProductStore = defineStore('products', () => {
   const products = ref([]) // state
@@ -9,6 +10,7 @@ export const useProductStore = defineStore('products', () => {
   }
 
   const fetchProducts = async () => {
+    /*
     products.value = [
       {
         id: 1,
@@ -116,7 +118,9 @@ export const useProductStore = defineStore('products', () => {
         image: 'https://zivekytky.s26.cdn-upgates.com/u/u681b4cba0a007-86583018706df3-ficus-elastica-robusta-12cm-01.png',
         description: 'Robustní pokojová rostlina s lesklými tmavými listy.',
       },
-    ]
+    ]*/
+
+    products.value = await getAllProducts()
   }
 
   const fetchRecommendedProducts = async () => {

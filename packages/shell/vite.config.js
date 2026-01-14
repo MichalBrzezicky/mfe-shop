@@ -27,12 +27,16 @@ export default defineConfig({
       },
       exposes: {
         './pinia': './src/plugins/pinia.js',
+        './firebase': './src/firebase/firebase.js',
       },
       shared: {
         vue: { singleton: true },
         pinia: { singleton: true },
         vuetify: { singleton: true },
         'vue-router': { singleton: true },
+        firebase: { singleton: true },
+        'firebase/app': { singleton: true },
+        'firebase/firestore': { singleton: true },
       },
     }),
   ],
