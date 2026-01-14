@@ -25,20 +25,18 @@
         :key="item.id"
         :prepend-avatar="item.image"
       >
-        <!-- Přidat avatar pro obrázek a název -->
         <v-list-item-title class="d-flex justify-space-between">
           {{ item.title }}
           <strong>
-            {{ formatPrice(item.price * item.quantity) }}
+            {{ formatPrice((item.sale || item.price) * item.quantity) }}
           </strong>
         </v-list-item-title>
 
         <v-list-item-subtitle class="d-flex justify-space-between">
           <span>× {{ item.quantity }}</span>
           <span>
-            {{ formatPrice(item.price) }} za kus
+            {{ formatPrice(item.sale || item.price) }} za kus
           </span>
-          <!-- Přidat jednotkovou cenu item.price -->
         </v-list-item-subtitle>
       </v-list-item>
 

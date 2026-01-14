@@ -34,13 +34,13 @@
               <v-list-item-title class="d-flex justify-space-between">
                 {{ item.title }}
                 <strong class="pr-2">
-                  {{ formatPrice(item.price * item.quantity) }}
+                  {{ formatPrice((item.sale || item.price) * item.quantity) }}
                 </strong>
               </v-list-item-title>
 
               <v-list-item-subtitle class="d-flex justify-space-between align-center">
                 <span>
-                  {{ formatPrice(item.price) }} za kus
+                  {{ formatPrice(item.sale || item.price) }} za kus
                 </span>
 
                 <div class="d-flex align-center">
