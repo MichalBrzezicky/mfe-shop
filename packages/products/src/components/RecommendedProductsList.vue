@@ -4,7 +4,7 @@
 
     <v-row dense>
       <v-col
-        v-for="product in productStore.products"
+        v-for="product in products"
         :key="product.id"
         cols="12"
         lg="3"
@@ -25,13 +25,13 @@
 <script setup>
   import { eventBus } from '@shared/core/eventBus'
   import { CART_EVENTS } from '@shared/core/events/CartEventsEnum.js'
-  import { onMounted } from 'vue'
+  import { onMounted, ref } from 'vue'
   import ProductCard from './ProductCard.vue'
-  import { useProductStore } from '../stores/productStore.js'
+  import { getRecommendedProducts } from '../services/productsService.js'
 
   const emit = defineEmits(['add-to-cart', 'view-product'])
 
-  const productStore = useProductStore()
+  const products = ref([])
 
 
   function onAddToCart(product) {
@@ -42,7 +42,11 @@
     emit('view-product', productId)
   }
 
+  async function fetchRecommendedProducts() {
+    products.value = await getRecommendedProducts(8)
+  }
+
   onMounted(async () => {
-    await productStore.fetchRecommendedProducts()
+    await fetchRecommendedProducts()
   })
 </script>
