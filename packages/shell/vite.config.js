@@ -1,46 +1,53 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { federation } from '@module-federation/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: 'http://localhost:5173/',
-  server: {
-    port: 5173,
-  },
-  plugins: [
-    vue(),
-    federation({
-      name: 'shell',
-      filename: 'remoteEntry.js',
-      remotes: {
-        products: {
-          name: 'products',
-          type: 'module',
-          entry: 'http://localhost:5001/remoteEntry.js',
+export default defineConfig(({ mode }) => {
+
+  const env = loadEnv(mode, process.cwd(), 'VITE_')
+
+  return {
+    base: '/',
+    server: {
+      port: 5173,
+    },
+    plugins: [
+      vue(),
+      federation({
+        name: 'shell',
+        filename: 'remoteEntry.js',
+        remotes: {
+          products: {
+            name: 'products',
+            type: 'module',
+            entry: env.VITE_PRODUCTS_REMOTE,
+          },
+          cart: {
+            name: 'cart',
+            type: 'module',
+            entry: env.VITE_CART_REMOTE,
+          },
         },
-        cart: {
-          name: 'cart',
-          type: 'module',
-          entry: 'http://localhost:5002/remoteEntry.js',
+        skipPreload: true,
+        exposes: {
+          './pinia': './src/plugins/pinia.js',
+          './firebase': './src/firebase/firebase.js',
         },
-      },
-      exposes: {
-        './pinia': './src/plugins/pinia.js',
-        './firebase': './src/firebase/firebase.js',
-      },
-      shared: {
-        vue: { singleton: true },
-        pinia: { singleton: true },
-        vuetify: { singleton: true },
-        'vue-router': { singleton: true },
-        firebase: { singleton: true },
-        'firebase/app': { singleton: true },
-        'firebase/firestore': { singleton: true },
-      },
-    }),
-  ],
-  build: {
-    target: 'esnext',
-  },
+        shared: {
+          vue: { singleton: true },
+          pinia: { singleton: true },
+          vuetify: { singleton: true },
+          'vue-router': { singleton: true },
+          firebase: { singleton: true },
+          'firebase/app': { singleton: true },
+          'firebase/firestore': { singleton: true },
+        },
+      }),
+    ],
+    build: {
+      target: 'esnext',
+      modulePreload: false,
+    },
+  }
 })

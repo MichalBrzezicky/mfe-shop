@@ -12,7 +12,8 @@
     "lint": "eslint \"./packages/**/*.{js,ts,vue}\" --ext .js,.ts,.vue",
     "lint:fix": "eslint \"./packages/**/*.{js,ts,vue}\" --ext .js,.ts,.vue --fix",
     "format": "prettier --write \"./**/*.{js,ts,vue,json,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "pnpm --filter products run build && pnpm --filter products exec firebase deploy && pnpm --filter cart run build && pnpm --filter cart exec firebase deploy && pnpm --filter shell run build && pnpm --filter shell exec firebase deploy"
   },
   "keywords": [],
   "author": "",

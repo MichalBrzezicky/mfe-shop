@@ -9,7 +9,6 @@
 
   const products = ref([])
 
-
   async function fetchRecommendedProducts() {
     products.value = await getRecommendedProducts(8)
   }

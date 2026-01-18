@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "micro-frontends-3e9a3"
+  },
+  "targets": {
+    "micro-frontends-3e9a3": {
+      "hosting": {
+        "cart": [
+          "micro-frontends-cart"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -1,42 +1,44 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { federation } from '@module-federation/vite'
 
-// https://vite.dev/config/
-export default defineConfig({
-  base: 'http://localhost:5002/',
-  server: {
-    port: 5002,
-    origin: 'http://localhost:5002',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_')
+
+  return {
+    base: './',
+    server: {
+      port: 5002,
     },
-  },
-  plugins: [
-    vue(),
-    federation({
-      name: 'cart',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './CartView': './src/components/CartView.vue',
-        './cartEventHandlers': './src/integrations/cartEventHandlers.js',
-        './CartPreviewBtn': './src/components/CartPreviewBtn.vue',
-      },
-      remotes: {
-        shell: {
-          type: 'module',
-          entry: 'http://localhost:5173/remoteEntry.js',
+    plugins: [
+      vue(),
+      federation({
+        name: 'cart',
+        filename: 'remoteEntry.js',
+        exposes: {
+          './CartView': './src/components/CartView.vue',
+          './cartEventHandlers': './src/integrations/cartEventHandlers.js',
+          './CartPreviewBtn': './src/components/CartPreviewBtn.vue',
         },
-      },
-      shared: {
-        vue: { singleton: true },
-        pinia: { singleton: true },
-        vuetify: { singleton: true },
-        'vue-router': { singleton: true },
-      },
-    }),
-  ],
-  build: {
-    target: 'esnext',
-  },
+        skipPreload: true,
+        remotes: {
+          shell: {
+            type: 'module',
+            entry: env.VITE_SHELL_REMOTE,
+          },
+        },
+        shared: {
+          vue: { singleton: true },
+          pinia: { singleton: true },
+          vuetify: { singleton: true },
+          'vue-router': { singleton: true },
+        },
+      }),
+    ],
+    build: {
+      target: 'esnext',
+      modulePreload: false,
+      cssCodeSplit: false,
+    },
+  }
 })

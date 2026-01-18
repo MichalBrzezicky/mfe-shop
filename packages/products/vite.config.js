@@ -1,45 +1,49 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { federation } from '@module-federation/vite'
 
-// https://vite.dev/config/
-export default defineConfig({
-  base: 'http://localhost:5001/',
-  server: {
-    port: 5001,
-    origin: 'http://localhost:5001',
-  },
-  plugins: [
-    vue(),
-    federation({
-      name: 'products',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './ProductsPage': './src/pages/ProductsPage.vue',
-        './ProductDetailPage': './src/pages/ProductDetailPage.vue',
-        './RecommendedProductsList': './src/components/RecommendedProductsList.vue',
-        './ProductsOnSaleList': './src/components/ProductsOnSaleList.vue',
-        './productEventHandlers': './src/integrations/productEventHandlers.js',
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_')
 
-      },
-      remotes: {
-        shell: {
-          type: 'module',
-          entry: 'http://localhost:5173/remoteEntry.js',
+  return {
+    base: './',
+    server: {
+      port: 5001,
+    },
+    plugins: [
+      vue(),
+      federation({
+        name: 'products',
+        filename: 'remoteEntry.js',
+        exposes: {
+          './ProductsPage': './src/pages/ProductsPage.vue',
+          './ProductDetailPage': './src/pages/ProductDetailPage.vue',
+          './RecommendedProductsList': './src/components/RecommendedProductsList.vue',
+          './ProductsOnSaleList': './src/components/ProductsOnSaleList.vue',
+          './productEventHandlers': './src/integrations/productEventHandlers.js',
         },
-      },
-      shared: {
-        vue: { singleton: true },
-        pinia: { singleton: true },
-        vuetify: { singleton: true },
-        'vue-router': { singleton: true },
-        firebase: { singleton: true },
-        'firebase/app': { singleton: true },
-        'firebase/firestore': { singleton: true },
-      },
-    }),
-  ],
-  build: {
-    target: 'esnext',
-  },
+        skipPreload: true,
+        remotes: {
+          shell: {
+            type: 'module',
+            entry: env.VITE_SHELL_REMOTE,
+          },
+        },
+        shared: {
+          vue: { singleton: true },
+          pinia: { singleton: true },
+          vuetify: { singleton: true },
+          'vue-router': { singleton: true },
+          firebase: { singleton: true },
+          'firebase/app': { singleton: true },
+          'firebase/firestore': { singleton: true },
+        },
+      }),
+    ],
+    build: {
+      target: 'esnext',
+      modulePreload: false,
+      cssCodeSplit: false,
+    },
+  }
 })
