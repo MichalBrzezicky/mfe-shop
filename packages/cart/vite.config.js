@@ -30,7 +30,6 @@ export default defineConfig(({ mode }) => {
         shared: {
           vue: { singleton: true },
           pinia: { singleton: true },
-          vuetify: { singleton: true },
           'vue-router': { singleton: true },
         },
       }),
