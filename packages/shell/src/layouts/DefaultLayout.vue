@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="overflow-x-hidden">
     <HeaderNav :cartCount="cartCount" @open-cart="onOpenCart" />
 
     <v-main>
