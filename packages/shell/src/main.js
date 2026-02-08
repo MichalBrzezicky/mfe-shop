@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './plugins/router.js'
 import vuetify from './plugins/vuetify.js'
 import { pinia } from './plugins/pinia.js'
+import { i18n } from './i18n'
 
 const useEventHandlers = async function () {
   const { useCartEventHandlers } = await import('cart/cartEventHandlers')
@@ -29,6 +30,7 @@ const app = createApp(App)
 app.use(router)
 app.use(vuetify)
 app.use(pinia)
+app.use(i18n)
 
 const eventHandlers = await useEventHandlers()
 eventHandlers.register()

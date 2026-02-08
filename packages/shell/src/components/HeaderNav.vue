@@ -11,10 +11,9 @@
         <v-spacer />
 
         <v-col class="d-none d-md-flex nav-links" cols="auto">
-          <v-btn text to="/">Domů</v-btn>
-          <v-btn text to="/products">Produkty</v-btn>
-          <v-btn text to="/about">O nás</v-btn>
-          <v-btn text to="/contact">Kontakt</v-btn>
+          <v-btn v-for="option in navOptions" :key="option.to" :to="option.to" text>
+            {{ $t(option.label) }}
+          </v-btn>
         </v-col>
 
         <v-spacer />
@@ -39,6 +38,13 @@
   const CartPreviewBtn = defineAsyncComponent(
     () => import('cart/CartPreviewBtn'),
   )
+
+  const navOptions = [
+    { to: '/', label: 'navigation.home' },
+    { to: '/products', label: 'navigation.products' },
+    { to: '/about', label: 'navigation.about' },
+    { to: '/contact', label: 'navigation.contact' },
+  ]
 </script>
 
 <style scoped>

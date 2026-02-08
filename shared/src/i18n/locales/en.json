@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "about": "About us",
+    "contact": "Contact"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "navigation": {
+    "home": "Domů",
+    "products": "Produkty",
+    "cart": "Košík",
+    "about": "O nás",
+    "contact": "Kontakt"
+  }
+}
