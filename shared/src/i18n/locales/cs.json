@@ -58,5 +58,19 @@
         }
       }
     }
+  },
+  "cart": {
+    "components": {
+      "CartPreview": {
+        "title": "Košík",
+        "labels": {
+          "items": "{count} položek",
+          "empty": "Košík je prázdný",
+          "summary": "Celkem:",
+          "detail": "Přejít do košíku",
+          "pricePerItem": "{price} za kus"
+        }
+      }
+    }
   }
 }

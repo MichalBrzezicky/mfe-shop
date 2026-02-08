@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import { useCartEventHandlers } from './integrations/cartEventHandlers.js'
 const { pinia } = await import('shell/pinia.js')

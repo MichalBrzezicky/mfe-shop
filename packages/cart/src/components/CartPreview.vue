@@ -6,14 +6,14 @@
     <v-card-title class="d-flex justify-space-between align-center">
       <span>
         <v-icon size="x-small">mdi-cart</v-icon>
-        Košík
+        {{ $t('cart.components.CartPreview.title') }}
       </span>
       <v-chip
         color="primary"
         size="small"
         variant="tonal"
       >
-        {{ totalItems }} položek
+        {{ $t('cart.components.CartPreview.labels.items', { count: totalItems }) }}
       </v-chip>
     </v-card-title>
 
@@ -35,13 +35,13 @@
         <v-list-item-subtitle class="d-flex justify-space-between">
           <span>× {{ item.quantity }}</span>
           <span>
-            {{ formatPrice(item.sale || item.price) }} za kus
+            {{ $t('cart.components.CartPreview.labels.pricePerItem', { price: formatPrice(item.sale || item.price) }) }}
           </span>
         </v-list-item-subtitle>
       </v-list-item>
 
       <v-list-item v-if="!cartItems.length" class="text-center text-medium-emphasis">
-        Košík je prázdný
+        {{ $t('cart.components.CartPreview.labels.empty') }}
       </v-list-item>
     </v-list>
 
@@ -49,7 +49,7 @@
       <v-divider />
 
       <v-card-text class="d-flex justify-space-between text-h6 mx-2">
-        <span>Celkem:</span>
+        <span>{{ $t('cart.components.CartPreview.labels.summary') }}</span>
         <strong>{{ formatPrice(totalPrice) }}</strong>
       </v-card-text>
 
@@ -60,7 +60,7 @@
           width="200px"
           @click="emit('open-cart-page')"
         >
-          Přejít do košíku
+          {{ $t('cart.components.CartPreview.labels.detail') }}
         </v-btn>
       </v-card-actions>
     </template>

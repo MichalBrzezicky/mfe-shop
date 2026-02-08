@@ -58,5 +58,19 @@
         }
       }
     }
+  },
+  "cart": {
+    "components": {
+      "CartPreview": {
+        "title": "Cart",
+        "labels": {
+          "items": "{count} items",
+          "empty": "Your cart is empty",
+          "summary": "Total:",
+          "detail": "Go to cart",
+          "pricePerItem": "{price} per item"
+        }
+      }
+    }
   }
 }
