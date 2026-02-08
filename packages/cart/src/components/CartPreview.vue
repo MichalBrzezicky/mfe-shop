@@ -68,8 +68,9 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
+  import { computed, onUnmounted, ref } from 'vue'
   import { useCartStore } from '../stores/cartStore.js'
+  import { getLocale, onLocaleChange } from '@shared/core/locale.js'
 
   const cartStore = useCartStore()
 
@@ -79,7 +80,21 @@
 
   const emit = defineEmits(['open-cart-page'])
 
+  const locale = ref(getLocale())
+
+  const unsubscribe = onLocaleChange((newLocale) => {
+    locale.value = newLocale
+  })
+
+  onUnmounted(() => {
+    unsubscribe?.()
+  })
+
   function formatPrice(value) {
-    return `${value.toLocaleString('cs-CZ')} Kč`
+    return new Intl.NumberFormat(locale.value, {
+      style: 'currency',
+      currency: 'CZK',
+      maximumFractionDigits: 2,
+    }).format(value)
   }
 </script>
