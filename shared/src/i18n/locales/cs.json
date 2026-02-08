@@ -70,6 +70,17 @@
           "detail": "Přejít do košíku",
           "pricePerItem": "{price} za kus"
         }
+      },
+      "CartView": {
+        "title": "Nákupní košík",
+        "labels": {
+          "items": "{count} položek",
+          "clear": "Vyprázdnit košík",
+          "checkout": "Přejít k objednávce",
+          "summary": "Celkem:",
+          "pricePerItem": "{price} za kus",
+          "empty": "Košík je prázdný"
+        }
       }
     }
   }

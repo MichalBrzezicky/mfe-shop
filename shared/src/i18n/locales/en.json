@@ -70,6 +70,17 @@
           "detail": "Go to cart",
           "pricePerItem": "{price} per item"
         }
+      },
+      "CartView": {
+        "title": "Shopping Cart",
+        "labels": {
+          "items": "{count} items",
+          "clear": "Clear cart",
+          "checkout": "Proceed to checkout",
+          "summary": "Total:",
+          "pricePerItem": "{price} per item",
+          "empty": "Your cart is empty"
+        }
       }
     }
   }

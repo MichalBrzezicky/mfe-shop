@@ -6,7 +6,7 @@
           <v-col class="ma-0 pa-0 align-content-center">
             <div class="d-flex align-center">
             <span class="text-h5">
-              Nákupní košík
+              {{ $t('cart.components.CartView.title') }}
             </span>
 
               <v-chip
@@ -15,7 +15,8 @@
                 size="small"
                 variant="tonal"
               >
-                {{ totalItems }} položek
+
+                {{ $t('cart.components.CartView.labels.items', { count: totalItems }) }}
               </v-chip>
             </div>
           </v-col>
@@ -26,7 +27,7 @@
               variant="text"
               @click="clearCart"
             >
-              Vyprázdnit košík
+              {{ $t('cart.components.CartView.labels.clear') }}
             </v-btn>
           </v-col>
         </v-row>
@@ -57,7 +58,9 @@
 
               <v-list-item-subtitle class="d-flex justify-space-between align-center">
                 <span>
-                  {{ formatPrice(item.sale || item.price) }} za kus
+                  {{
+                    $t('cart.components.CartView.labels.pricePerItem', { price: formatPrice(item.sale || item.price) })
+                  }}
                 </span>
 
                 <div class="d-flex align-center">
@@ -91,14 +94,16 @@
             v-else
             class="text-center text-medium-emphasis py-8"
           >
-            Košík je prázdný
+            {{ $t('cart.components.CartView.labels.empty') }}
           </v-card-text>
 
           <template v-if="cartItems.length">
             <v-divider />
 
             <v-card-text class="d-flex justify-space-between text-h6 mx-3 my-2">
-              <span>Celkem:</span>
+              <span>
+                {{ $t('cart.components.CartView.labels.summary') }}
+              </span>
               <strong>{{ formatPrice(totalPrice) }}</strong>
             </v-card-text>
           </template>
@@ -110,7 +115,7 @@
           elevation="0"
           size="large"
         >
-          Pokračovat k objednávce
+          {{ $t('cart.components.CartView.labels.checkout') }}
         </v-btn>
       </v-col>
     </v-row>
