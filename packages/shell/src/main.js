@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './plugins/router.js'
 import vuetify from './plugins/vuetify.js'
 import { pinia } from './plugins/pinia.js'
-import { i18n } from './i18n'
+import { i18n } from './plugins/i18n.js'
 
 const useEventHandlers = async function () {
   const { useCartEventHandlers } = await import('cart/cartEventHandlers')

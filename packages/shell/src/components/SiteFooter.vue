@@ -8,39 +8,53 @@
               <img :src="logo" alt="PlantBase" class="site-logo-footer" />
             </RouterLink>
           </div>
-          <p class="muted">Nechte svůj domov růst s pečlivě vybranými pokojovými rostlinami.</p>
+          <p class="muted">{{ $t('shell.components.SiteFooter.title') }}</p>
         </v-col>
 
         <v-col cols="6" md="3">
-          <h6>Obchodní sekce</h6>
+          <h6>{{ $t('shell.components.SiteFooter.sections.store.title') }}</h6>
           <ul>
             <li>
-              <RouterLink to="/products">Pokojové rostliny</RouterLink>
+              <RouterLink to="/products">{{
+                  $t('shell.components.SiteFooter.sections.store.links.indoorPlants')
+                }}
+              </RouterLink>
             </li>
             <li>
-              <RouterLink to="/products?filter=new">Nově naskladněno</RouterLink>
+              <RouterLink to="/products?filter=new">{{
+                  $t('shell.components.SiteFooter.sections.store.links.newArrivals')
+                }}
+              </RouterLink>
             </li>
             <li>
-              <RouterLink to="/products?filter=sale">Výprodej</RouterLink>
+              <RouterLink to="/products?filter=sale">{{
+                  $t('shell.components.SiteFooter.sections.store.links.onSale')
+                }}
+              </RouterLink>
             </li>
           </ul>
         </v-col>
 
         <v-col cols="6" md="3">
-          <h6>Naše společnost</h6>
+          <h6>{{ $t('shell.components.SiteFooter.sections.company.title') }}</h6>
           <ul>
             <li>
-              <RouterLink to="/about">O nás</RouterLink>
+              <RouterLink to="/about">{{
+                  $t('shell.components.SiteFooter.sections.company.links.aboutUs')
+                }}
+              </RouterLink>
             </li>
             <li>
-              <RouterLink to="/contact">Kontakt</RouterLink>
+              <RouterLink to="/contact">{{
+                  $t('shell.components.SiteFooter.sections.company.links.contact')
+                }}
+              </RouterLink>
             </li>
           </ul>
         </v-col>
 
         <v-col class="text-center mt-6" cols="12">
-          <small>Neziskový akademický projekt pro vzdělávací účely. Design a obsah byl vytvořen s
-            využitím veřejně dostupných zdrojů a inspirován existujícími e-shopy. Nejedná se o komerční web. </small>
+          <small>{{ $t('shell.components.SiteFooter.projectInfo') }}</small>
         </v-col>
       </v-row>
     </v-container>

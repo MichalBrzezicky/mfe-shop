@@ -35,6 +35,27 @@
           "en": "English",
           "cs": "Czech"
         }
+      },
+      "SiteFooter": {
+        "title": "Let your home grow with carefully selected indoor plants.",
+        "projectInfo": "A non-profit academic project created for educational purposes. The design and content were developed using publicly available resources and inspired by existing e-commerce websites. This is not a commercial website.",
+        "sections": {
+          "store": {
+            "title": "Store section",
+            "links": {
+              "indoorPlants": "Indoor plants",
+              "newArrivals": "New arrivals",
+              "onSale": "On sale"
+            }
+          },
+          "company": {
+            "title": "Our company",
+            "links": {
+              "aboutUs": "About us",
+              "contact": "Contact"
+            }
+          }
+        }
       }
     }
   }

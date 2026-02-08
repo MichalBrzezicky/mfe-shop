@@ -35,6 +35,27 @@
           "en": "Anglicky",
           "cs": "Česky"
         }
+      },
+      "SiteFooter": {
+        "title": "Nechte svůj domov růst s pečlivě vybranými pokojovými rostlinami.",
+        "projectInfo": "Neziskový akademický projekt pro vzdělávací účely. Design a obsah byl vytvořen s využitím veřejně dostupných zdrojů a inspirován existujícími e-shopy. Nejedná se o komerční web.",
+        "sections": {
+          "store": {
+            "title": "Obchodní sekce",
+            "links": {
+              "indoorPlants": "Pokojové rostliny",
+              "newArrivals": "Nově naskladněno",
+              "onSale": "Výprodej"
+            }
+          },
+          "company": {
+            "title": "Naše společnost",
+            "links": {
+              "aboutUs": "O nás",
+              "contact": "Kontakt"
+            }
+          }
+        }
       }
     }
   }
