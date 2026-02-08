@@ -1,22 +1,39 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col class="pa-0 ma-0" cols="12">
-        <div class="d-flex mb-4 mx-2 align-center">
+      <v-col class="ma-0 pa-0" cols="12">
+        <v-row class="ma-0 pa-0 ">
+          <v-col class="ma-0 pa-0 align-content-center">
+            <div class="d-flex align-center">
             <span class="text-h5">
               Nákupní košík
             </span>
 
-          <v-chip
-            class="mx-2"
-            color="primary"
-            size="small"
-            variant="tonal"
-          >
-            {{ totalItems }} položek
-          </v-chip>
-        </div>
+              <v-chip
+                class="mx-2"
+                color="primary"
+                size="small"
+                variant="tonal"
+              >
+                {{ totalItems }} položek
+              </v-chip>
+            </div>
+          </v-col>
+          <v-col class="ma-0 pa-0 text-right" cols="auto">
+            <v-btn
+              color="primary"
+              elevation="0"
+              variant="text"
+              @click="clearCart"
+            >
+              Vyprázdnit košík
+            </v-btn>
+          </v-col>
+        </v-row>
 
+      </v-col>
+
+      <v-col class="pa-0 ma-0" cols="12">
         <v-card
           :color="'#f1f1f1'"
           class="my-4"
@@ -80,29 +97,21 @@
           <template v-if="cartItems.length">
             <v-divider />
 
-            <v-card-text class="d-flex justify-space-between text-h6 mx-3">
+            <v-card-text class="d-flex justify-space-between text-h6 mx-3 my-2">
               <span>Celkem:</span>
               <strong>{{ formatPrice(totalPrice) }}</strong>
             </v-card-text>
-
-            <v-card-actions class="justify-space-between px-4 pb-4">
-              <v-btn
-                color="secondary"
-                variant="text"
-                @click="clearCart"
-              >
-                Vyprázdnit košík
-              </v-btn>
-
-              <v-btn
-                color="primary"
-                size="large"
-              >
-                Pokračovat k objednávce
-              </v-btn>
-            </v-card-actions>
           </template>
         </v-card>
+      </v-col>
+      <v-col class="text-right">
+        <v-btn
+          color="primary"
+          elevation="0"
+          size="large"
+        >
+          Pokračovat k objednávce
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
