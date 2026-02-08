@@ -10,7 +10,9 @@
           <v-row>
             <v-col class="text-left mt-10" cols="9" lg="6" md="5" order-md="2" style="min-height: 140px">
               <h1 class="text-h4 font-weight-bold mb-3" style="color:#163528; line-height:1.05">
-                Dřeviny a rostliny <br>vhodné pro pěstování v obývacím pokoji
+                {{ $t('shell.components.HeroSection.header.title') }}
+                <br>
+                {{ $t('shell.components.HeroSection.header.subtitle') }}
               </h1>
               <v-btn
                 class="text-none mb-4"
@@ -20,7 +22,7 @@
                 to="/products"
                 variant="elevated"
               >
-                Přejít k nákupu
+                {{ $t('shell.components.HeroSection.actions.shopNow') }}
               </v-btn>
             </v-col>
             <v-col class="ma-0 pa-0 d-flex justify-center" cols="3" lg="2" md="3" order-md="1">
@@ -55,26 +57,31 @@
           <v-card class="pa-5" elevation="0" rounded="lg">
             <v-card-text>
               <p class="mb-3" style="color:#2e4039">
-                Výsadba stromů představuje odborný proces přesazování stromových sazenic, který je nejčastěji využíván v
-                lesnictví, zahradnictví a při obnově krajiny. Tento proces se soustředí především na práci s mladými
-                rostlinami, které se teprve adaptují na nové prostředí, a klade důraz na správný výběr dřevin s ohledem
-                na klimatické podmínky, typ půdy a zamýšlené využití prostoru. Na rozdíl od...
+                {{ $t('shell.components.HeroSection.labels.info') }}
               </p>
 
               <a href="#" style="color:#2b8a56; font-weight:600; text-decoration:none">
-                Zjistit více
+                {{ $t('shell.components.HeroSection.actions.readMore') }}
                 <v-icon>mdi-arrow-right-thin</v-icon>
               </a>
 
               <v-row align="center" class="mt-7" dense>
                 <v-col cols="4">
-                  <div style="font-weight:700; color:#122a22">200+</div>
-                  <div style="font-size:0.85rem; color:#667a72">Druhů rostlin</div>
+                  <div style="font-weight:700; color:#122a22">
+                    {{ $t('shell.components.HeroSection.statistics.plants.count') }}
+                  </div>
+                  <div style="font-size:0.85rem; color:#667a72">
+                    {{ $t('shell.components.HeroSection.statistics.plants.label') }}
+                  </div>
                 </v-col>
 
                 <v-col cols="4">
-                  <div style="font-weight:700; color:#122a22">0.5k+</div>
-                  <div style="font-size:0.85rem; color:#667a72">Odběratelů</div>
+                  <div style="font-weight:700; color:#122a22">
+                    {{ $t('shell.components.HeroSection.statistics.subscribers.count') }}
+                  </div>
+                  <div style="font-size:0.85rem; color:#667a72">
+                    {{ $t('shell.components.HeroSection.statistics.subscribers.label') }}
+                  </div>
                 </v-col>
               </v-row>
             </v-card-text>

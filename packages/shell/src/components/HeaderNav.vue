@@ -19,9 +19,7 @@
         <v-spacer />
 
         <v-col class="d-inline-flex align-center" cols="auto">
-          <v-btn aria-label="Account" icon>
-            <v-icon>mdi-account</v-icon>
-          </v-btn>
+          <LanguageMenu />
 
           <CartPreviewBtn />
         </v-col>
@@ -34,16 +32,17 @@
   import { defineAsyncComponent } from 'vue'
   import { RouterLink } from 'vue-router'
   import logo from '../assets/logo.png'
+  import LanguageMenu from './LanguageMenu.vue'
 
   const CartPreviewBtn = defineAsyncComponent(
     () => import('cart/CartPreviewBtn'),
   )
 
   const navOptions = [
-    { to: '/', label: 'navigation.home' },
-    { to: '/products', label: 'navigation.products' },
-    { to: '/about', label: 'navigation.about' },
-    { to: '/contact', label: 'navigation.contact' },
+    { to: '/', label: 'shell.navigation.home' },
+    { to: '/products', label: 'shell.navigation.products' },
+    { to: '/about', label: 'shell.navigation.about' },
+    { to: '/contact', label: 'shell.navigation.contact' },
   ]
 </script>
 

@@ -1,9 +1,41 @@
 {
-  "navigation": {
-    "home": "Home",
-    "products": "Products",
-    "cart": "Cart",
-    "about": "About us",
-    "contact": "Contact"
+  "shell": {
+    "navigation": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About us",
+      "contact": "Contact"
+    },
+    "components": {
+      "HeroSection": {
+        "header": {
+          "title": "Trees and Plants",
+          "subtitle": "suitable for indoor living spaces"
+        },
+        "actions": {
+          "shopNow": "Shop now",
+          "readMore": "Learn more"
+        },
+        "labels": {
+          "info": "Tree planting is a specialized process involving the transplantation of young tree saplings, most commonly used in forestry, gardening, and landscape restoration. The process focuses primarily on working with young plants that are still adapting to their environment and emphasizes the careful selection of species based on climate conditions, soil type, and the intended use of the space. Unlike..."
+        },
+        "statistics": {
+          "plants": {
+            "count": "200+",
+            "label": "Plant species"
+          },
+          "subscribers": {
+            "count": "0.5k+",
+            "label": "Subscribers"
+          }
+        }
+      },
+      "LanguageMenu": {
+        "languages": {
+          "en": "English",
+          "cs": "Czech"
+        }
+      }
+    }
   }
 }

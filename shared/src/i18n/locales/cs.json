@@ -1,9 +1,41 @@
 {
-  "navigation": {
-    "home": "Domů",
-    "products": "Produkty",
-    "cart": "Košík",
-    "about": "O nás",
-    "contact": "Kontakt"
+  "shell": {
+    "navigation": {
+      "home": "Domů",
+      "products": "Produkty",
+      "about": "O nás",
+      "contact": "Kontakt"
+    },
+    "components": {
+      "HeroSection": {
+        "header": {
+          "title": "Dřeviny a rostliny",
+          "subtitle": "vhodné pro pěstování v obývacím pokoji"
+        },
+        "actions": {
+          "shopNow": "Přejít k nákupu",
+          "readMore": "Zjistit více"
+        },
+        "labels": {
+          "info": "Výsadba stromů představuje odborný proces přesazování stromových sazenic, který je nejčastěji využíván v lesnictví, zahradnictví a při obnově krajiny. Tento proces se soustředí především na práci s mladými rostlinami, které se teprve adaptují na nové prostředí, a klade důraz na správný výběr dřevin s ohledem na klimatické podmínky, typ půdy a zamýšlené využití prostoru. Na rozdíl od..."
+        },
+        "statistics": {
+          "plants": {
+            "count": "200+",
+            "label": "Druhů rostlin"
+          },
+          "subscribers": {
+            "count": "0.5k+",
+            "label": "Odběratelů"
+          }
+        }
+      },
+      "LanguageMenu": {
+        "languages": {
+          "en": "Anglicky",
+          "cs": "Česky"
+        }
+      }
+    }
   }
 }
