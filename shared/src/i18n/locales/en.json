@@ -45,7 +45,7 @@
             "links": {
               "indoorPlants": "Indoor plants",
               "newArrivals": "New arrivals",
-              "onSale": "On sale"
+              "onSale": "Sale"
             }
           },
           "company": {
@@ -80,6 +80,18 @@
           "summary": "Total:",
           "pricePerItem": "{price} per item",
           "empty": "Your cart is empty"
+        }
+      }
+    }
+  },
+  "products": {
+    "components": {
+      "ProductCard": {
+        "chips": {
+          "sale": "Sale"
+        },
+        "actions": {
+          "addToCart": "Add to cart"
         }
       }
     }

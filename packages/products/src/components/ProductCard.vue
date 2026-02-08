@@ -21,7 +21,9 @@
       justify="center"
       style="position: absolute; top: 10px; left: 10px; display: block"
     >
-      <v-chip class="text-subtitle-1" color="red-lighten-1" variant="flat">Výprodej</v-chip>
+      <v-chip class="text-subtitle-1" color="red-lighten-1" variant="flat">
+        {{ $t('products.components.ProductCard.chips.sale') }}
+      </v-chip>
     </v-row>
 
 
@@ -43,7 +45,7 @@
         @click.stop="emit('add-to-cart', product.id)"
       >
         <v-icon class="ml-1" icon="mdi-cart-plus" left />
-        Přidat do košíku
+        {{ $t('products.components.ProductCard.actions.addToCart') }}
       </v-btn>
       <v-container class="ma-0 pa-0 text-right">
         <v-row class="ma-0 pa-0" no-gutters>
@@ -59,7 +61,8 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
+  import { computed, onUnmounted, ref } from 'vue'
+  import { getLocale, onLocaleChange } from '@shared/core/locale.js'
 
   const { product, showAddToCart } = defineProps({
     product: {
@@ -74,32 +77,34 @@
 
   const emit = defineEmits(['view-product', 'add-to-cart'])
 
-  const isOnSale = computed(() => {
-    return !!product.sale
+  const locale = ref(getLocale())
+
+  const unsubscribe = onLocaleChange((newLocale) => {
+    locale.value = newLocale
   })
 
+  onUnmounted(() => {
+    unsubscribe?.()
+  })
+
+  const isOnSale = computed(() => !!product.sale)
+
   const formattedSalePrice = computed(() => {
-    if (!isOnSale.value) {
-      return null
-    }
+    if (!isOnSale.value) return null
 
-    const salePrice = product.sale ?? 0
-
-    return new Intl.NumberFormat('cs-CZ', {
+    return new Intl.NumberFormat(locale.value, {
       style: 'currency',
       currency: 'CZK',
       maximumFractionDigits: 2,
-    }).format(salePrice)
+    }).format(product.sale)
   })
 
   const formattedPrice = computed(() => {
-    const price = product.price ?? 0
-
-    return new Intl.NumberFormat('cs-CZ', {
+    return new Intl.NumberFormat(locale.value, {
       style: 'currency',
       currency: 'CZK',
       maximumFractionDigits: 2,
-    }).format(price)
+    }).format(product.price)
   })
 </script>
 

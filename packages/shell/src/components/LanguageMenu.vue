@@ -2,7 +2,7 @@
   <v-menu>
     <template #activator="{ props }">
       <v-btn aria-label="Language" icon v-bind="props">
-        {{ languageStore.locale.toUpperCase() }}
+        {{ locale.toUpperCase() }}
       </v-btn>
     </template>
 
@@ -10,7 +10,7 @@
       <v-list-item
         v-for="lang in languages"
         :key="lang.code"
-        :active="languageStore.locale === lang.code"
+        :active="locale === lang.code"
         @click="changeLanguage(lang.code)"
       >
         <v-list-item-title>
@@ -22,9 +22,10 @@
 </template>
 
 <script setup>
-  import { useLanguageStore } from '../stores/languageStore.js'
+  import { onMounted, onUnmounted, ref } from 'vue'
+  import { getLocale, onLocaleChange, setLocale } from '@shared/core/locale'
 
-  const languageStore = useLanguageStore()
+  const locale = ref(getLocale())
 
   const languages = [
     { code: 'cs', label: 'shell.components.LanguageMenu.languages.cs' },
@@ -32,6 +33,18 @@
   ]
 
   function changeLanguage(lang) {
-    languageStore.setLocale(lang)
+    setLocale(lang)
   }
+
+  let unsubscribe
+
+  onMounted(() => {
+    unsubscribe = onLocaleChange((newLocale) => {
+      locale.value = newLocale
+    })
+  })
+
+  onUnmounted(() => {
+    unsubscribe?.()
+  })
 </script>

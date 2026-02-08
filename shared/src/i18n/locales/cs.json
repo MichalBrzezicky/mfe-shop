@@ -83,5 +83,17 @@
         }
       }
     }
+  },
+  "products": {
+    "components": {
+      "ProductCard": {
+        "chips": {
+          "sale": "Výprodej"
+        },
+        "actions": {
+          "addToCart": "Přidat do košíku"
+        }
+      }
+    }
   }
 }
