@@ -93,6 +93,15 @@
         "actions": {
           "addToCart": "Přidat do košíku"
         }
+      },
+      "ProductsList": {
+        "title": "Veškerý sortiment"
+      },
+      "ProductsOnSaleList": {
+        "title": "Ve výprodeji"
+      },
+      "RecommendedProductsList": {
+        "title": "Doporučujeme"
       }
     }
   }

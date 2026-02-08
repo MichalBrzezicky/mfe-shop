@@ -93,6 +93,15 @@
         "actions": {
           "addToCart": "Add to cart"
         }
+      },
+      "ProductsList": {
+        "title": "All Products"
+      },
+      "ProductsOnSaleList": {
+        "title": "On Sale"
+      },
+      "RecommendedProductsList": {
+        "title": "Recommended"
       }
     }
   }

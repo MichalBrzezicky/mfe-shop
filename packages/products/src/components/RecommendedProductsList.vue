@@ -1,5 +1,5 @@
 <template>
-  <ProductsListLayout :products="products" title="Doporučené plodiny" />
+  <ProductsListLayout :products="products" :title="$t('products.components.RecommendedProductsList.title')" />
 </template>
 
 <script setup>
