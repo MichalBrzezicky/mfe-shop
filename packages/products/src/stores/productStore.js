@@ -9,7 +9,20 @@ export const useProductStore = defineStore('products', () => {
     products.value.push(product)
   }
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (filter) => {
+    switch (filter) {
+      case 'recommended':
+        return fetchRecommendedProducts()
+      case 'sale':
+        return fetchProductsInSale()
+      case 'new':
+        return fetchNewProducts()
+      default:
+        return fetchAllProducts()
+    }
+  }
+
+  const fetchAllProducts = async () => {
     products.value = await getAllProducts()
   }
 
@@ -25,5 +38,5 @@ export const useProductStore = defineStore('products', () => {
     products.value = await getNewProducts()
   }
 
-  return { products, fetchProducts, fetchRecommendedProducts, fetchNewProducts, fetchProductsInSale }
+  return { products, fetchAllProducts, fetchProducts, fetchRecommendedProducts, fetchNewProducts, fetchProductsInSale }
 })

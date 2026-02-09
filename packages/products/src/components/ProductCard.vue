@@ -15,14 +15,17 @@
     />
 
     <v-row
-      v-if="isOnSale"
+      v-if="isOnSale || isNew"
       align="center"
       class="fill-height ma-0"
       justify="center"
       style="position: absolute; top: 10px; left: 10px; display: block"
     >
-      <v-chip class="text-subtitle-1" color="red-lighten-1" variant="flat">
+      <v-chip v-if="isOnSale" class="text-subtitle-1" color="red-lighten-1" variant="flat">
         {{ $t('products.components.ProductCard.chips.sale') }}
+      </v-chip>
+      <v-chip v-if="isNew" class="text-subtitle-1" color="green-lighten-1" variant="flat">
+        {{ $t('products.components.ProductCard.chips.new') }}
       </v-chip>
     </v-row>
 
@@ -88,6 +91,7 @@
   })
 
   const isOnSale = computed(() => !!product.sale)
+  const isNew = computed(() => product.isNew)
 
   const formattedSalePrice = computed(() => {
     if (!isOnSale.value) return null

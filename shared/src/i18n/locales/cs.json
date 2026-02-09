@@ -88,14 +88,21 @@
     "components": {
       "ProductCard": {
         "chips": {
-          "sale": "Výprodej"
+          "sale": "Výprodej",
+          "new": "Nové"
         },
         "actions": {
           "addToCart": "Přidat do košíku"
         }
       },
       "ProductsList": {
-        "title": "Veškerý sortiment"
+        "title": "Veškerý sortiment",
+        "filterOptions": {
+          "all": "Vše",
+          "new": "Nové",
+          "sale": "Výprodej",
+          "recommended": "Doporučujeme"
+        }
       },
       "ProductsOnSaleList": {
         "title": "Ve výprodeji"

@@ -1,6 +1,13 @@
 <template>
   <v-container class="pa-0 ma-0">
-    <h2 v-if="title" class="text-h5 my-4 mx-2">{{ title }}</h2>
+    <v-row class="align-center" dense>
+      <v-col cols="12" sm="4">
+        <h2 v-if="title" class="text-h5 my-4 mx-2">{{ title }}</h2>
+      </v-col>
+      <v-col v-if="$slots['append']" class="text-right justify-items-end" cols="12" sm="8">
+        <slot name="append" />
+      </v-col>
+    </v-row>
 
     <v-row dense>
       <v-col

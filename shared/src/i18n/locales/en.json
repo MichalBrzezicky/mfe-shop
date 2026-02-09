@@ -88,14 +88,21 @@
     "components": {
       "ProductCard": {
         "chips": {
-          "sale": "Sale"
+          "sale": "Sale",
+          "new": "New"
         },
         "actions": {
           "addToCart": "Add to cart"
         }
       },
       "ProductsList": {
-        "title": "All Products"
+        "title": "All Products",
+        "filterOptions": {
+          "all": "All",
+          "new": "New",
+          "sale": "Sale",
+          "recommended": "Recommended"
+        }
       },
       "ProductsOnSaleList": {
         "title": "On Sale"
