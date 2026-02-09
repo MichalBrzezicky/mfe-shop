@@ -1,60 +1,74 @@
 <template>
-  <v-footer padless>
+  <v-footer class="bg-white" style="max-height: 250px">
     <v-container>
       <v-row>
+        <!-- Brand -->
         <v-col cols="12" md="6">
-          <div class="brand">
-            <RouterLink aria-label="PlantBase home" class="footer-logo-link" to="/">
-              <img :src="logo" alt="PlantBase" class="site-logo-footer" />
+          <v-row align="center" class="mb-2">
+            <RouterLink aria-label="PlantBase home" to="/">
+              <v-img
+                :src="logo"
+                alt="PlantBase"
+                contain
+                width="120"
+              />
             </RouterLink>
-          </div>
-          <p class="muted">{{ $t('shell.components.SiteFooter.title') }}</p>
+          </v-row>
+
+          <span class="text-body-2 text-medium-emphasis">
+            {{ $t('shell.components.SiteFooter.title') }}
+          </span>
         </v-col>
 
+        <!-- Store section -->
         <v-col cols="6" md="3">
-          <h6>{{ $t('shell.components.SiteFooter.sections.store.title') }}</h6>
-          <ul>
-            <li>
-              <RouterLink to="/products">{{
-                  $t('shell.components.SiteFooter.sections.store.links.indoorPlants')
-                }}
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/products?filter=new">{{
-                  $t('shell.components.SiteFooter.sections.store.links.newArrivals')
-                }}
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/products?filter=sale">{{
-                  $t('shell.components.SiteFooter.sections.store.links.onSale')
-                }}
-              </RouterLink>
-            </li>
-          </ul>
+          <span class="text-subtitle-2 mb-2">
+            {{ $t('shell.components.SiteFooter.sections.store.title') }}
+          </span>
+
+          <v-list class="ma-0 pa-0" density="compact">
+            <v-list-item
+              v-for="item in storeLinks"
+              :key="item.label"
+              :active="false"
+              :to="item.to"
+              class="ma-0 pa-0"
+              variant="plain"
+            >
+              <v-list-item-title>
+                {{ $t(item.label) }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
         </v-col>
 
+        <!-- Company section -->
         <v-col cols="6" md="3">
-          <h6>{{ $t('shell.components.SiteFooter.sections.company.title') }}</h6>
-          <ul>
-            <li>
-              <RouterLink to="/about">{{
-                  $t('shell.components.SiteFooter.sections.company.links.aboutUs')
-                }}
-              </RouterLink>
-            </li>
-            <li>
-              <RouterLink to="/contact">{{
-                  $t('shell.components.SiteFooter.sections.company.links.contact')
-                }}
-              </RouterLink>
-            </li>
-          </ul>
+          <span class="text-subtitle-2 mb-2">
+            {{ $t('shell.components.SiteFooter.sections.company.title') }}
+          </span>
+
+          <v-list class="ma-0 pa-0" density="compact">
+            <v-list-item
+              v-for="item in companyLinks"
+              :key="item.label"
+              :active="false"
+              :to="item.to"
+              class="ma-0 pa-0"
+              variant="plain"
+            >
+              <v-list-item-title>
+                {{ $t(item.label) }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
         </v-col>
 
+        <!-- Bottom -->
         <v-col class="text-center mt-6" cols="12">
-          <small>{{ $t('shell.components.SiteFooter.projectInfo') }}</small>
+          <span class="text-caption text-medium-emphasis">
+            {{ $t('shell.components.SiteFooter.projectInfo') }}
+          </span>
         </v-col>
       </v-row>
     </v-container>
@@ -62,48 +76,32 @@
 </template>
 
 <script setup>
-  import { RouterLink } from 'vue-router'
   import logo from '../assets/logo.png'
+  import { PRODUCT_FILTER } from '@shared/core/src/enums/productFilterEnum.js'
+
+  const storeLinks = [
+    {
+      label: 'shell.components.SiteFooter.sections.store.links.indoorPlants',
+      to: { path: '/products', query: { filter: PRODUCT_FILTER.ALL } },
+    },
+    {
+      label: 'shell.components.SiteFooter.sections.store.links.newArrivals',
+      to: { path: '/products', query: { filter: PRODUCT_FILTER.NEW } },
+    },
+    {
+      label: 'shell.components.SiteFooter.sections.store.links.onSale',
+      to: { path: '/products', query: { filter: PRODUCT_FILTER.SALE } },
+    },
+  ]
+
+  const companyLinks = [
+    {
+      label: 'shell.components.SiteFooter.sections.company.links.aboutUs',
+      to: '/about',
+    },
+    {
+      label: 'shell.components.SiteFooter.sections.company.links.contact',
+      to: '/contact',
+    },
+  ]
 </script>
-
-<style scoped>
-  .brand {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .footer-logo-link {
-    display: inline-flex;
-    align-items: center
-  }
-
-  .site-logo-footer {
-    height: 36px;
-    width: auto
-  }
-
-  .muted {
-    color: rgba(0, 0, 0, 0.6);
-    margin-top: 8px
-  }
-
-  v-footer {
-    background: transparent
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0
-  }
-
-  li {
-    margin: 6px 0
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none
-  }
-</style>

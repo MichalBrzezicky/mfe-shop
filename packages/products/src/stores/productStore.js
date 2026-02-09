@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { getAllProducts, getNewProducts, getRecommendedProducts, getSaleProducts } from '../services/productsService.js'
+import { PRODUCT_FILTER } from '@shared/core/src/enums/productFilterEnum.js'
 
 export const useProductStore = defineStore('products', () => {
   const products = ref([]) // state
@@ -11,11 +12,11 @@ export const useProductStore = defineStore('products', () => {
 
   const fetchProducts = async (filter) => {
     switch (filter) {
-      case 'recommended':
+      case PRODUCT_FILTER.RECOMMENDED:
         return fetchRecommendedProducts()
-      case 'sale':
+      case PRODUCT_FILTER.SALE:
         return fetchProductsInSale()
-      case 'new':
+      case PRODUCT_FILTER.NEW:
         return fetchNewProducts()
       default:
         return fetchAllProducts()

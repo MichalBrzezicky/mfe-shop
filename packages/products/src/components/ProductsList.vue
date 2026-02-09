@@ -20,27 +20,37 @@
 </template>
 
 <script setup>
-  import { onMounted, ref, watch } from 'vue'
+  import { ref, watch } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
   import { useProductStore } from '../stores/productStore'
   import ProductsListLayout from './ProductsListLayout.vue'
+  import { PRODUCT_FILTER } from '@shared/core/src/enums/productFilterEnum.js'
 
   const productStore = useProductStore()
+  const route = useRoute()
+  const router = useRouter()
 
-  const filter = ref('all')
+  const filter = ref(PRODUCT_FILTER.ALL)
 
   const filterOptions = [
-    { value: 'all', label: 'products.components.ProductsList.filterOptions.all' },
-    { value: 'new', label: 'products.components.ProductsList.filterOptions.new' },
-    { value: 'sale', label: 'products.components.ProductsList.filterOptions.sale' },
-    { value: 'recommended', label: 'products.components.ProductsList.filterOptions.recommended' },
+    { value: PRODUCT_FILTER.ALL, label: 'products.components.ProductsList.filterOptions.all' },
+    { value: PRODUCT_FILTER.NEW, label: 'products.components.ProductsList.filterOptions.new' },
+    { value: PRODUCT_FILTER.SALE, label: 'products.components.ProductsList.filterOptions.sale' },
+    { value: PRODUCT_FILTER.RECOMMENDED, label: 'products.components.ProductsList.filterOptions.recommended' },
   ]
 
-  watch(filter, (value) => {
-    productStore.fetchProducts(value)
-  })
+  watch(
+    () => route.query.filter,
+    (value) => {
+      filter.value = typeof value === 'string' ? value : PRODUCT_FILTER.ALL
+      productStore.fetchProducts(filter.value)
+    },
+    { immediate: true },
+  )
 
-  onMounted(() => {
-    // get param from Vue router
-    productStore.fetchProducts(filter.value)
+  watch(filter, (value) => {
+    router.replace({
+      query: { ...route.query, filter: value },
+    })
   })
 </script>
