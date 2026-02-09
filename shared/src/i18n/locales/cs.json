@@ -7,6 +7,20 @@
       "contact": "Kontakt"
     },
     "components": {
+      "ContactPage": {
+        "subheader": "Máte nějaké přání nebo dotaz?",
+        "header": "Napište nám",
+        "subtitle": "Rádi Vám pomůžeme. Zanechte nám zprávu níže a my se Vám brzy ozveme.",
+        "labels": {
+          "email": "Vaše e-mailová adresa",
+          "message": "Máte nějaký dotaz nebo přání?",
+          "name": "Jméno a příjmení",
+          "phone": "Telefon (nepovinné)",
+          "send": "Odeslat zprávu",
+          "workingDays": "Pondělí - Pátek: 9:00 - 18:00",
+          "saturday": "Sobota: 9:00 - 14:00"
+        }
+      },
       "HeroSection": {
         "header": {
           "title": "Dřeviny a rostliny",

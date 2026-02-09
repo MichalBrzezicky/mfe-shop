@@ -7,6 +7,20 @@
       "contact": "Contact"
     },
     "components": {
+      "ContactPage": {
+        "subheader": "Do you have a question or a request?",
+        "header": "Contact us",
+        "subtitle": "We’ll be happy to help. Leave us a message below and we’ll get back to you soon.",
+        "labels": {
+          "email": "Your email address",
+          "message": "Do you have a question or a request?",
+          "name": "Full name",
+          "phone": "Phone number (optional)",
+          "send": "Send message",
+          "workingDays": "Monday – Friday: 9:00 AM – 6:00 PM",
+          "saturday": "Saturday: 9:00 AM – 2:00 PM"
+        }
+      },
       "HeroSection": {
         "header": {
           "title": "Trees and Plants",
