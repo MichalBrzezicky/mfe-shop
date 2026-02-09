@@ -2,7 +2,6 @@
   <v-footer class="bg-white" style="max-height: 250px">
     <v-container>
       <v-row>
-        <!-- Brand -->
         <v-col cols="12" md="6">
           <v-row align="center" class="mb-2">
             <RouterLink aria-label="PlantBase home" to="/">
@@ -20,7 +19,6 @@
           </span>
         </v-col>
 
-        <!-- Store section -->
         <v-col cols="6" md="3">
           <span class="text-subtitle-2 mb-2">
             {{ $t('shell.components.SiteFooter.sections.store.title') }}
@@ -42,7 +40,6 @@
           </v-list>
         </v-col>
 
-        <!-- Company section -->
         <v-col cols="6" md="3">
           <span class="text-subtitle-2 mb-2">
             {{ $t('shell.components.SiteFooter.sections.company.title') }}
@@ -64,7 +61,6 @@
           </v-list>
         </v-col>
 
-        <!-- Bottom -->
         <v-col class="text-center mt-6" cols="12">
           <span class="text-caption text-medium-emphasis">
             {{ $t('shell.components.SiteFooter.projectInfo') }}

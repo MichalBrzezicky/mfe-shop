@@ -20,7 +20,7 @@
               </v-chip>
             </div>
           </v-col>
-          <v-col class="ma-0 pa-0 text-right" cols="auto">
+          <v-col v-if="!isCartEmpty" class="ma-0 pa-0 text-right" cols="auto">
             <v-btn
               color="primary"
               elevation="0"
@@ -42,7 +42,6 @@
           rounded="lg"
           variant="flat"
         >
-          <!-- Seznam položek -->
           <v-list v-if="cartItems.length" density="comfortable">
             <v-list-item
               v-for="item in cartItems"
@@ -97,7 +96,7 @@
             {{ $t('cart.components.CartView.labels.empty') }}
           </v-card-text>
 
-          <template v-if="cartItems.length">
+          <template v-if="!isCartEmpty">
             <v-divider />
 
             <v-card-text class="d-flex justify-space-between text-h6 mx-3 my-2">
@@ -111,6 +110,7 @@
       </v-col>
       <v-col class="text-right">
         <v-btn
+          :disabled="isCartEmpty"
           color="primary"
           elevation="0"
           size="large"
@@ -132,6 +132,7 @@
   const cartItems = computed(() => cartStore.items)
   const totalItems = computed(() => cartStore.totalCount)
   const totalPrice = computed(() => cartStore.totalPrice)
+  const isCartEmpty = computed(() => cartStore.totalCount === 0)
 
   const locale = ref(getLocale())
 

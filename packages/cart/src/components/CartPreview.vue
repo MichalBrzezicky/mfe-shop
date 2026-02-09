@@ -45,7 +45,7 @@
       </v-list-item>
     </v-list>
 
-    <template v-if="cartItems.length > 0">
+    <template v-if="!isCartEmpty">
       <v-divider />
 
       <v-card-text class="d-flex justify-space-between text-h6 mx-2">
@@ -77,6 +77,7 @@
   const cartItems = computed(() => cartStore.items)
   const totalItems = computed(() => cartStore.totalCount)
   const totalPrice = computed(() => cartStore.totalPrice)
+  const isCartEmpty = computed(() => cartStore.totalCount === 0)
 
   const emit = defineEmits(['open-cart-page'])
 
