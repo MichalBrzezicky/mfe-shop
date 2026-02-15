@@ -1,4 +1,4 @@
-import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
+import { collection, getDoc, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import { db } from 'shell/firebase'
 
 export function getCollection(collectionName) {
@@ -8,6 +8,11 @@ export function getCollection(collectionName) {
 export async function executeQuery(q) {
   const snapshot = await getDocs(q)
   return snapshot.docs.map((doc) => doc.data())
+}
+
+export async function executeDocument(docRef) {
+  const snapshot = await getDoc(docRef)
+  return snapshot.exists() ? snapshot.data() : null
 }
 
 export function mergeQueryWithLimit(q, count) {

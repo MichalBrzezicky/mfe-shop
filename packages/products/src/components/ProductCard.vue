@@ -5,7 +5,7 @@
     elevation="0"
     rounded="lg"
     variant="flat"
-    @click="emit('view-product', product.id)"
+    @click="goToDetail"
   >
     <v-img
       :src="product.image"
@@ -66,6 +66,9 @@
 <script setup>
   import { computed, onUnmounted, ref } from 'vue'
   import { getLocale, onLocaleChange } from '@shared/core/locale.js'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
 
   const { product, showAddToCart } = defineProps({
     product: {
@@ -110,6 +113,10 @@
       maximumFractionDigits: 2,
     }).format(product.price)
   })
+
+  const goToDetail = () => {
+    router.push({ name: 'product-detail', params: { id: product.id } })
+  }
 </script>
 
 <style scoped>
