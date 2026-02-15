@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="bg-white" style="max-height: 250px">
+  <v-footer class="bg-white">
     <v-container>
       <v-row>
         <v-col cols="12" md="6">

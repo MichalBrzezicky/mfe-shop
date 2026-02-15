@@ -7,6 +7,14 @@
       "contact": "Kontakt"
     },
     "components": {
+      "AboutUsArticle": {
+        "title": "O PlantBase",
+        "articles": {
+          "article1": "PlantBase je moderní internetový obchod, jehož cílem je přibližovat přírodu každodennímu životu. Zaměřujeme se na pečlivě vybrané pokojové rostliny, které spojují estetiku, kvalitu a snadnou péči.",
+          "article2": "Naším cílem je zpřístupnit zeleň každému, ať už s pokojovými rostlinami teprve začínáte, nebo si budujete vlastní městskou džungli. Každý produkt v naší nabídce vybíráme s důrazem na kvalitu a poskytujeme srozumitelné informace, které vám pomohou vybrat tu správnou rostlinu pro váš domov či kancelář.",
+          "article3": "Věříme, že rostliny nejsou jen dekorací. Přispívají k lepší kvalitě vzduchu, vytvářejí příjemnou atmosféru a dodávají prostoru život. Proto se nesoustředíme pouze na prodej, ale také na inspiraci a podporu při vytváření zdravějšího a útulnějšího prostředí."
+        }
+      },
       "ContactPage": {
         "subheader": "Máte nějaké přání nebo dotaz?",
         "header": "Napište nám",
