@@ -1,19 +1,15 @@
 <template>
-  <ProductsListLayout :products="products" :title="$t('products.components.RecommendedProductsList.title')" />
+  <ProductsCarousel :products="products" :title="$t('products.components.RecommendedProductsList.title')" />
 </template>
 
 <script setup>
   import { onMounted, ref } from 'vue'
   import { getRecommendedProducts } from '../services/productsService.js'
-  import ProductsListLayout from './ProductsListLayout.vue'
+  import ProductsCarousel from './ProductsCarousel.vue'
 
   const products = ref([])
 
-  async function fetchRecommendedProducts() {
-    products.value = await getRecommendedProducts(8)
-  }
-
   onMounted(async () => {
-    await fetchRecommendedProducts()
+    products.value = await getRecommendedProducts(12)
   })
 </script>
