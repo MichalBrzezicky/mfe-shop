@@ -22,14 +22,29 @@
           <LanguageMenu />
 
           <CartPreviewBtn />
+
+          <v-app-bar-nav-icon class="d-flex d-md-none" @click="drawer = true" />
         </v-col>
       </v-row>
     </v-container>
   </v-app-bar>
+
+  <v-navigation-drawer v-model="drawer" location="right" temporary>
+    <v-list nav>
+      <v-list-item
+        v-for="option in navOptions"
+        :key="option.to"
+        :to="option.to"
+        @click="drawer = false"
+      >
+        {{ $t(option.label) }}
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
-  import { defineAsyncComponent } from 'vue'
+  import { defineAsyncComponent, ref } from 'vue'
   import { RouterLink } from 'vue-router'
   import logo from '../assets/logo.png'
   import LanguageMenu from './LanguageMenu.vue'
@@ -37,6 +52,8 @@
   const CartPreviewBtn = defineAsyncComponent(
     () => import('cart/CartPreviewBtn'),
   )
+
+  const drawer = ref(false)
 
   const navOptions = [
     { to: '/', label: 'shell.navigation.home' },
