@@ -46,10 +46,15 @@
             <v-list-item
               v-for="item in cartItems"
               :key="item.id"
-              :prepend-avatar="item.image"
             >
+              <template #prepend>
+                <v-avatar class="mr-3 cursor-pointer" rounded="lg" size="56" @click="goToProduct(item.id)">
+                  <v-img :src="item.image" :alt="item.title" cover />
+                </v-avatar>
+              </template>
+
               <v-list-item-title class="d-flex justify-space-between">
-                {{ item.title }}
+                <span class="cursor-pointer" @click="goToProduct(item.id)">{{ item.title }}</span>
                 <strong class="pr-2">
                   {{ formatPrice((item.sale || item.price) * item.quantity) }}
                 </strong>
@@ -124,9 +129,11 @@
 
 <script setup>
   import { computed, onUnmounted, ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import { useCartStore } from '../stores/cartStore.js'
   import { getLocale, onLocaleChange } from '@shared/core/locale.js'
 
+  const router = useRouter()
   const cartStore = useCartStore()
 
   const cartItems = computed(() => cartStore.items)
@@ -150,6 +157,10 @@
 
   function decrease(productId) {
     cartStore.removeProduct(productId)
+  }
+
+  function goToProduct(productId) {
+    router.push({ name: 'product-detail', params: { id: productId } })
   }
 
   function clearCart() {
