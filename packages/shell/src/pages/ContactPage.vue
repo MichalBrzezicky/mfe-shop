@@ -20,10 +20,10 @@
           <template v-slot:title>
             <v-row class="ma-0 my-6 pa-0 text-center" justify="center">
               <v-col class="ma-0 pa-0" cols="12">
-                <span class="text-h4">{{ $t('shell.components.ContactPage.subheader') }}</span>
+                <span :class="$vuetify.display.smAndDown ? 'text-h6' : 'text-h4'">{{ $t('shell.components.ContactPage.subheader') }}</span>
               </v-col>
               <v-col class="ma-0 pa-0" cols="12">
-                <span class="text-h3 text-green-darken-4">{{ $t('shell.components.ContactPage.header') }}</span>
+                <span :class="$vuetify.display.smAndDown ? 'text-h4' : 'text-h3'" class="text-green-darken-4">{{ $t('shell.components.ContactPage.header') }}</span>
               </v-col>
               <v-col class="my-1 pa-0" cols="12">
                 <span class="text-subtitle-1">{{ $t('shell.components.ContactPage.subtitle') }}</span>

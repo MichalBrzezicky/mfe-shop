@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-h4 font-weight-bold mb-1">{{ product.title }}</h1>
+    <h1 class="font-weight-bold mb-1" :class="$vuetify.display.smAndDown ? 'text-h5' : 'text-h4'">{{ product.title }}</h1>
 
     <p v-if="product.latinName" class="text-body-1 text-medium-emphasis font-italic mb-4">
       {{ product.latinName }}
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Quantity + Add to cart -->
-    <v-row align="center" class="mb-4" no-gutters>
+    <v-row align="center" class="mb-4 flex-wrap" no-gutters>
       <v-col cols="auto" class="mr-3">
         <div class="quantity-control d-flex align-center">
           <v-btn density="compact" icon="mdi-minus" variant="outlined" @click="decrement" />

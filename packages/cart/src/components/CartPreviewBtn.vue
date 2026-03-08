@@ -1,27 +1,18 @@
 <template>
+  <v-badge :content="totalCount" color="primary" overlap>
+    <v-btn aria-label="Cart" icon @click="goToCartPage">
+      <v-icon>mdi-cart</v-icon>
+    </v-btn>
+  </v-badge>
+
   <v-menu
+    v-if="$vuetify.display.mdAndUp"
     :close-on-content-click="false"
+    activator="parent"
     location="bottom end"
     open-on-hover
     transition="scale-transition"
   >
-    <template #activator="{ props }">
-      <v-badge
-        :content="totalCount"
-        color="primary"
-        overlap
-      >
-        <v-btn
-          aria-label="Cart"
-          icon
-          v-bind="props"
-          @click="goToCartPage"
-        >
-          <v-icon>mdi-cart</v-icon>
-        </v-btn>
-      </v-badge>
-    </template>
-
     <CartPreview @open-cart-page="goToCartPage" />
   </v-menu>
 </template>

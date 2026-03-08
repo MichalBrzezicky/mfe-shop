@@ -53,9 +53,9 @@
                 </v-avatar>
               </template>
 
-              <v-list-item-title class="d-flex justify-space-between">
-                <span class="cursor-pointer" @click="goToProduct(item.id)">{{ item.title }}</span>
-                <strong class="pr-2">
+              <v-list-item-title class="d-flex justify-space-between" style="gap: 8px">
+                <span class="cursor-pointer text-truncate" @click="goToProduct(item.id)">{{ item.title }}</span>
+                <strong class="flex-shrink-0 pr-2">
                   {{ formatPrice((item.sale || item.price) * item.quantity) }}
                 </strong>
               </v-list-item-title>
