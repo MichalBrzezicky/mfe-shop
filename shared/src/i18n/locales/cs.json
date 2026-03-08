@@ -131,6 +131,54 @@
       },
       "RecommendedProductsList": {
         "title": "Doporučujeme"
+      },
+      "ProductDetail": {
+        "actions": {
+          "addToCart": "Přidat do košíku"
+        },
+        "labels": {
+          "inStock": "Skladem, připraveno k odeslání",
+          "freeShipping": "Doprava zdarma od 500 Kč",
+          "returnPolicy": "30denní vrácení zboží",
+          "quantity": "Množství"
+        },
+        "tabs": {
+          "description": "Popis",
+          "care": "Péče"
+        },
+        "care": {
+          "light": {
+            "label": "Světlo",
+            "indirect": "Nepřímé světlo",
+            "direct": "Přímé slunce",
+            "shade": "Polostín"
+          },
+          "water": {
+            "label": "Zálivka",
+            "low": "Minimální zálivka",
+            "moderate": "Střední zálivka",
+            "high": "Vydatná zálivka"
+          },
+          "petFriendly": {
+            "label": "Zvířata",
+            "yes": "Vhodné pro zvířata",
+            "no": "Nevhodné pro zvířata"
+          },
+          "height": {
+            "label": "Výška"
+          }
+        },
+        "faq": {
+          "title": "Časté dotazy",
+          "q1": "Jak poznám, kdy rostlinu zalévat?",
+          "a1": "Zkontrolujte vlhkost substrátu prstem do hloubky asi 2–3 cm. Pokud je suchý, je čas zalévat. Každá rostlina má jiné nároky, proto doporučujeme sledovat konkrétní pokyny u každého druhu.",
+          "q2": "Co dělat, když listí žloutne?",
+          "a2": "Žloutnutí listů může mít více příčin – přelití, nedostatek světla nebo přirozené stárnutí listu. Nejčastější příčinou je nadměrná zálivka. Zkontrolujte, zda substrát není trvale mokrý.",
+          "q3": "Je rostlina vhodná pro začátečníky?",
+          "a3": "Většina rostlin v naší nabídce je vybírána s ohledem na snadnou péči. U každého produktu najdete informace o nárocích na světlo, zálivku a prostředí.",
+          "q4": "Jak přepravujete rostliny?",
+          "a4": "Rostliny balíme do speciálních obalů, které chrání květináč a listy při přepravě. Standardní dodací lhůta je 2–4 pracovní dny."
+        }
       }
     }
   }

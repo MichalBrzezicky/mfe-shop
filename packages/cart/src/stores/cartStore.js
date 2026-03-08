@@ -13,15 +13,15 @@ export const useCartStore = defineStore('cart', () => {
     items.value.reduce((sum, item) => sum + (item.sale || item.price) * item.quantity, 0),
   )
 
-  function addProduct(product) {
+  function addProduct(product, quantity = 1) {
     const existing = items.value.find(p => p.id === product.id)
 
     if (existing) {
-      existing.quantity++
+      existing.quantity += quantity
     } else {
       items.value.push({
         ...product,
-        quantity: 1,
+        quantity,
       })
     }
   }

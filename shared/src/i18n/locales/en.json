@@ -131,6 +131,54 @@
       },
       "RecommendedProductsList": {
         "title": "Recommended"
+      },
+      "ProductDetail": {
+        "actions": {
+          "addToCart": "Add to cart"
+        },
+        "labels": {
+          "inStock": "In stock, ready to ship",
+          "freeShipping": "Free shipping from CZK 500",
+          "returnPolicy": "30-day return policy",
+          "quantity": "Quantity"
+        },
+        "tabs": {
+          "description": "Description",
+          "care": "Care"
+        },
+        "care": {
+          "light": {
+            "label": "Light",
+            "indirect": "Indirect light",
+            "direct": "Direct sunlight",
+            "shade": "Partial shade"
+          },
+          "water": {
+            "label": "Watering",
+            "low": "Low watering",
+            "moderate": "Moderate watering",
+            "high": "Regular watering"
+          },
+          "petFriendly": {
+            "label": "Pets",
+            "yes": "Pet friendly",
+            "no": "Not pet friendly"
+          },
+          "height": {
+            "label": "Height"
+          }
+        },
+        "faq": {
+          "title": "Frequently Asked Questions",
+          "q1": "How do I know when to water my plant?",
+          "a1": "Check the moisture of the soil by inserting your finger about 2–3 cm deep. If it feels dry, it is time to water. Each plant has different needs, so we recommend following the specific care instructions for each species.",
+          "q2": "What should I do if leaves are turning yellow?",
+          "a2": "Yellowing leaves can have multiple causes – overwatering, lack of light, or natural leaf aging. The most common cause is overwatering. Check whether the soil stays permanently wet.",
+          "q3": "Is this plant suitable for beginners?",
+          "a3": "Most plants in our range are selected with easy care in mind. Each product includes information about its light, watering, and environmental requirements.",
+          "q4": "How do you ship plants?",
+          "a4": "Plants are packed in special packaging that protects the pot and leaves during transport. Standard delivery time is 2–4 business days."
+        }
       }
     }
   }

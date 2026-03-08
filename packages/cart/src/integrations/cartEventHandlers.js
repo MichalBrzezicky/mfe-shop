@@ -8,7 +8,7 @@ export function useCartEventHandlers() {
       const cartStore = useCartStore()
 
       const onAddToCart = (e) => {
-        cartStore.addProduct(e.detail.product)
+        cartStore.addProduct(e.detail.product, e.detail.quantity)
       }
       const onRemoveFromCart = (e) => {
         cartStore.removeProduct(e.detail.productId)

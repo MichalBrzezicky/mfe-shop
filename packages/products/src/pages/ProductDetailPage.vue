@@ -2,16 +2,22 @@
   <v-container class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
       <v-col class="ma-0 pa-0">
-        <ProductDetail
-          v-if="product" :product="product"
-        />
+        <ProductDetail v-if="product" :product="product" />
 
-        <!-- TODO skeleton loader... -->
-        <v-progress-circular
-          v-else
-          color="primary"
-          indeterminate
-        />
+        <v-container v-else class="py-6">
+          <v-row>
+            <v-col cols="12" md="5">
+              <v-skeleton-loader type="image" height="480" rounded="lg" />
+            </v-col>
+            <v-col class="pl-md-8" cols="12" md="7">
+              <v-skeleton-loader type="heading" class="mb-2" />
+              <v-skeleton-loader type="text" width="40%" class="mb-6" />
+              <v-skeleton-loader type="text@4" class="mb-6" />
+              <v-skeleton-loader type="heading" width="30%" class="mb-6" />
+              <v-skeleton-loader type="button" />
+            </v-col>
+          </v-row>
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
@@ -29,7 +35,6 @@
 
   async function loadProduct(id) {
     product.value = await getProductById(id)
-    console.log('Product loaded:', product.value)
   }
 
   watch(
