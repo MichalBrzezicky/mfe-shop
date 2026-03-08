@@ -9,10 +9,25 @@
     "components": {
       "AboutUsArticle": {
         "title": "About PlantBase",
+        "subtitle": "Your guide to the world of indoor plants",
         "articles": {
           "article1": "PlantBase is a modern online store dedicated to bringing nature closer to everyday life. We focus on carefully selected indoor plants that combine aesthetics, quality, and easy care.",
           "article2": "Our goal is to make greenery accessible to everyone, whether you are just starting with houseplants or building your own urban jungle. Every product in our selection is chosen with an emphasis on quality, and we provide clear information to help you choose the right plant for your home or office.",
           "article3": "We believe that plants are more than just decoration. They improve air quality, create a pleasant atmosphere, and bring life into any space. That is why we focus not only on selling plants, but also on inspiring and supporting people in creating healthier and more welcoming environments."
+        },
+        "values": {
+          "quality": {
+            "title": "Careful selection",
+            "description": "Every plant is selected with an emphasis on quality and health. We work only with verified growers who share our passion for nature."
+          },
+          "care": {
+            "title": "Customer support",
+            "description": "We are here for you from choosing a plant to everyday care. Our advisors are happy to help with any question you may have."
+          },
+          "sustainability": {
+            "title": "Sustainability",
+            "description": "We focus on eco-friendly packaging and minimising waste. We believe that a business with nature must respect nature."
+          }
         }
       },
       "ContactPage": {
