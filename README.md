@@ -6,6 +6,8 @@ This repository contains a demonstration implementation of an e‑shop built usi
 shared application runtime. The project aims to validate design decisions, integration patterns and limits of
 micro‑frontends in a modern frontend application.
 
+**Live demo:** https://micro-frontends-shell.web.app
+
 ## Table of contents
 
 - Project overview
